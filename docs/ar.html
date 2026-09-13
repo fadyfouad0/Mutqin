@@ -3,7 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="support.js"></script>
+<title>متقن — كل ما يحتاجه مكتب التخليص في مكان واحد</title>
+<meta name="description" content="نظام سعودي لمكاتب التخليص الجمركي المرخّصة: إعداد البيانات، الربط مع منصة فسح، متابعة الشحنات، رسوم كل شحنة والربط المحاسبي.">
+<link rel="icon" type="image/png" sizes="32x32" href="brand/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="brand/favicon-512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="brand/favicon-180.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#0E0E0E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="متقن — كل ما يحتاجه مكتب التخليص في مكان واحد">
+<meta property="og:description" content="نظام سعودي لمكاتب التخليص الجمركي المرخّصة: إعداد البيانات، الربط مع منصة فسح، متابعة الشحنات، رسوم كل شحنة والربط المحاسبي.">
+<meta property="og:image" content="brand/favicon-512.png">
+<meta name="twitter:card" content="summary_large_image">
+<script src="./support.js"></script>
 </head>
 <body>
 <x-dc>
@@ -12,13 +24,18 @@
 <link rel="icon" type="image/png" sizes="32x32" href="brand/favicon-32.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="brand/favicon-512.png" />
 <link rel="apple-touch-icon" href="brand/favicon-180.png" />
-<title>متقن — المنصة التي تعمل عليها مكاتب التخليص المرخّصة</title>
+<title>متقن — كل ما يحتاجه مكتب التخليص في مكان واحد</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
 <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&display=swap" rel="stylesheet" />
 <style>
   *{box-sizing:border-box;min-width:0}
-  body{margin:0;background:#F5F2EF;font-family:Almarai,system-ui,sans-serif;-webkit-font-smoothing:antialiased;color:#0E0E0E}
+  html,body{overflow-x:hidden;max-width:100%}
+  img,svg,video{max-width:100%}
+  body{margin:0;background:#F5F2EF;font-family:Almarai,system-ui,sans-serif;-webkit-font-smoothing:antialiased;color:#0E0E0E;line-height:1.75}
+  button,input,select,textarea,option{font-family:Almarai,system-ui,sans-serif;line-height:1.9}
+  h1,h2,h3,h4{line-height:1.34}
+  label>span,h1,h2,h3,h4,p{position:relative;z-index:1}
   a{color:#0E0E0E;text-decoration:none}
   a:hover{color:#00A868}
   ::selection{background:#00C278;color:#0E0E0E}
@@ -26,7 +43,6 @@
   @keyframes pktLeftAr{0%{right:0;opacity:0}12%{opacity:1}88%{opacity:1}100%{right:100%;opacity:0}}
   @keyframes pktRightAr{0%{left:0;opacity:0}12%{opacity:1}88%{opacity:1}100%{left:100%;opacity:0}}
   @keyframes bridgeAr{0%{width:0}55%,100%{width:100%}}
-  @keyframes dotHalo{0%{transform:scale(1);opacity:.9}70%{transform:scale(2.6);opacity:0}100%{transform:scale(2.6);opacity:0}}
 </style>
 </helmet>
 
@@ -35,43 +51,89 @@
 <header style="position:fixed;top:0;left:0;right:0;z-index:80;background:{{ navBg }};border-bottom:1px solid {{ navBorder }};backdrop-filter:blur(14px);transition:background .3s ease,border-color .3s ease">
   <div style="max-width:1560px;margin:0 auto;padding:0 {{ padX }};min-height:88px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:{{ navRowGap }}">
     <a href="#top" style="position:relative;display:flex;align-items:center;flex:0 0 auto;height:40px"><img src="brand/lockup-light.svg" alt="متقن" style="height:40px;display:block;opacity:{{ logoLight }};transition:opacity .3s ease" /><img src="brand/lockup-dark.svg" alt="" aria-hidden="true" style="position:absolute;right:0;top:0;height:40px;display:block;opacity:{{ logoDark }};transition:opacity .3s ease" /></a>
-    <nav style="display:flex;align-items:center;gap:{{ navGap }};font-size:15px;font-weight:700;white-space:nowrap;color:{{ navFg }};order:{{ navOrder }};width:{{ navWidth }};justify-content:{{ navJustify }};padding:{{ navPad }}">
-      <a href="#sectors" style="color:inherit">لمن هو</a>
-      <a href="#clearance" style="color:inherit">التخليص</a>
-      <a href="#payments" style="color:inherit">المدفوعات</a>
-      <a href="#carriers" style="color:inherit">الناقلون</a>
-      <a href="#features" style="color:inherit">المزايا</a>
-      <a href="#faq" style="color:inherit">الأسئلة الشائعة</a>
+    <nav style="display:{{ navDisplay }};align-items:center;gap:{{ navGap }};overflow-x:auto;scrollbar-width:none;font-size:{{ navSize }};font-weight:700;white-space:nowrap;color:{{ navFg }};order:{{ navOrder }};width:{{ navWidth }};justify-content:{{ navJustify }};padding:{{ navPad }}">
+      <a href="#sectors" style="color:inherit;padding-bottom:5px;background-image:linear-gradient(#00C278,#00C278);background-repeat:no-repeat;background-position:right bottom;background-size:0% 2px;transition:background-size .3s cubic-bezier(.2,.7,.2,1),color .2s ease" style-hover="color:#00C278;background-size:100% 2px">لمن هو</a>
+      <a href="#clearance" style="color:inherit;padding-bottom:5px;background-image:linear-gradient(#00C278,#00C278);background-repeat:no-repeat;background-position:right bottom;background-size:0% 2px;transition:background-size .3s cubic-bezier(.2,.7,.2,1),color .2s ease" style-hover="color:#00C278;background-size:100% 2px">الربط مع فسح</a>
+      <a href="#features" style="color:inherit;padding-bottom:5px;background-image:linear-gradient(#00C278,#00C278);background-repeat:no-repeat;background-position:right bottom;background-size:0% 2px;transition:background-size .3s cubic-bezier(.2,.7,.2,1),color .2s ease" style-hover="color:#00C278;background-size:100% 2px">المزايا</a>
+      <a href="#fees" style="color:inherit;padding-bottom:5px;background-image:linear-gradient(#00C278,#00C278);background-repeat:no-repeat;background-position:right bottom;background-size:0% 2px;transition:background-size .3s cubic-bezier(.2,.7,.2,1),color .2s ease" style-hover="color:#00C278;background-size:100% 2px">الرسوم</a>
+      <a href="#stages" style="color:inherit;padding-bottom:5px;background-image:linear-gradient(#00C278,#00C278);background-repeat:no-repeat;background-position:right bottom;background-size:0% 2px;transition:background-size .3s cubic-bezier(.2,.7,.2,1),color .2s ease" style-hover="color:#00C278;background-size:100% 2px">كيف يعمل</a>
+      <a href="#faq" style="color:inherit;padding-bottom:5px;background-image:linear-gradient(#00C278,#00C278);background-repeat:no-repeat;background-position:right bottom;background-size:0% 2px;transition:background-size .3s cubic-bezier(.2,.7,.2,1),color .2s ease" style-hover="color:#00C278;background-size:100% 2px">الأسئلة الشائعة</a>
     </nav>
     <div style="display:flex;align-items:center;gap:14px;flex:0 0 auto">
-      <a href="index.html" style="background:{{ navToggle }};clip-path:{{ clipSm }};padding:11px 21px;font-size:14.5px;font-weight:700;color:{{ navFg }}">English</a>
-      <a href="#demo" style="display:inline-block;background:#00C278;color:#0E0E0E;clip-path:{{ clipSm }};padding:13px 26px;font-size:15px;font-weight:700" style-hover="background:#0E0E0E;color:#FFFDFD">اطلب عرضاً تجريبياً</a>
+      <button onClick="{{ openMenu }}" aria-label="القائمة" style="display:{{ burgerShow }};width:46px;height:46px;flex:0 0 auto;align-items:center;justify-content:center;background:{{ navToggle }};border:0;clip-path:{{ clipSm }};cursor:pointer;padding:0" style-hover="background:#00C278">
+        <span style="display:grid;gap:5px;width:20px">
+          <span style="height:2px;background:{{ navFg }};border-radius:2px"></span>
+          <span style="height:2px;background:{{ navFg }};border-radius:2px"></span>
+          <span style="height:2px;background:{{ navFg }};border-radius:2px"></span>
+        </span>
+      </button>
+      <a href="Mutqin Ecosystem Site.dc.html" style="display:{{ deskOnly }};background:{{ navToggle }};clip-path:{{ clipSm }};padding:11px 21px;font-size:14.5px;font-weight:700;color:{{ navFg }}">English</a>
+      <a href="#demo" onClick="{{ openDemo }}" style="display:{{ deskOnly }};background:#00C278;color:#0E0E0E;clip-path:{{ clipSm }};padding:13px 26px;font-size:15px;font-weight:700" style-hover="background:#0E0E0E;color:#FFFDFD">اطلب عرضاً تجريبياً</a>
     </div>
   </div>
 </header>
-
-<section id="top" style="position:relative;height:100svh;min-height:600px;overflow:hidden;background:#0E0E0E">
-  <div style="position:absolute;inset:0"><img src="photos/hero-jeddah-lighthouse.jpg" alt="برج المراقبة في ميناء جدة الإسلامي وسفينة حاويات قادمة" style="width:100%;height:100%;object-fit:cover;object-position:50% 50%;display:block" /></div>
-  <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(14,14,14,.74) 0%,rgba(14,14,14,.6) 45%,rgba(14,14,14,.84) 100%)"></div>
-  <div style="position:absolute;inset:0;pointer-events:none;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 clamp(20px,4vw,40px)">
-    <div style="max-width:1120px">
-      <div style="font-family:Almarai,sans-serif;font-weight:700;font-size:13.5px;color:#FFFDFD;margin-bottom:26px">{{ heroKicker }}</div>
-      <h1 style="margin:0;min-height:2.68em;display:flex;align-items:center;justify-content:center;font-family:Almarai,sans-serif;font-weight:800;font-size:clamp(28px,3.5vw,52px);line-height:1.34;color:#FFFDFD;text-wrap:balance">{{ heroTitle }}</h1>
-      <p style="margin:32px auto 0;max-width:66ch;min-height:5.85em;font-size:18px;line-height:1.95;color:rgba(255,253,253,.84);text-wrap:pretty">{{ heroBody }}</p>
-      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:40px;pointer-events:auto">
-        <a href="#demo" style="background:#00C278;color:#0E0E0E;font-weight:700;font-size:16px;clip-path:{{ clipLg }};padding:17px 34px" style-hover="background:#FFFDFD">اطلب عرضاً تجريبياً</a>
-        <a href="#clearance" style="background:rgba(255,253,253,.16);backdrop-filter:blur(10px);color:#FFFDFD;font-weight:400;font-size:16px;clip-path:{{ clipLg }};padding:18px 35px" style-hover="background:rgba(255,253,253,.3)">استكشف المنصة</a>
+<div dir="rtl" style="position:fixed;inset:0;z-index:120;display:{{ menuShow }};background:rgba(14,14,14,.55);backdrop-filter:blur(4px)" onClick="{{ closeMenu }}">
+  <div onClick="{{ stopClick }}" style="position:absolute;top:0;right:0;width:{{ drawerW }};height:100%;background:#FFFDFD;padding:0 {{ padX }} 28px;display:flex;flex-direction:column;gap:18px;overflow:auto;box-shadow:0 0 70px rgba(0,0,0,.4)">
+    <div style="min-height:88px;display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid rgba(14,14,14,.12)">
+      <img src="brand/lockup-dark.svg" alt="متقن" style="height:40px;display:block" />
+      <button onClick="{{ closeMenu }}" aria-label="إغلاق" style="width:46px;height:46px;flex:0 0 auto;border:0;padding:0;background:rgba(14,14,14,.07);clip-path:{{ clipSm }};color:#0E0E0E;font-size:28px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="background:#0E0E0E;color:#FFFDFD">&#215;</button>
+    </div>
+    <div style="display:grid;width:100%;max-width:{{ drawerInnerW }};margin:0 auto">
+        <a href="#sectors" onClick="{{ menuGo }}" style="display:grid;gap:4px;padding:13px 0 14px;border-bottom:1px solid rgba(14,14,14,.1);border-right:2px solid transparent;padding-right:14px;transition:border-color .2s ease,background .2s ease" style-hover="border-right-color:#00C278;background:rgba(0,194,120,.07)">
+          <span style="font-family:Almarai,sans-serif;font-weight:800;font-size:18px;line-height:1.35;color:#0E0E0E">لمن هو</span>
+          <span style="font-size:13px;line-height:1.7;color:rgba(14,14,14,.6)">نقل سريع، الوارد، الصادر</span>
+        </a>
+        <a href="#clearance" onClick="{{ menuGo }}" style="display:grid;gap:4px;padding:13px 0 14px;border-bottom:1px solid rgba(14,14,14,.1);border-right:2px solid transparent;padding-right:14px;transition:border-color .2s ease,background .2s ease" style-hover="border-right-color:#00C278;background:rgba(0,194,120,.07)">
+          <span style="font-family:Almarai,sans-serif;font-weight:800;font-size:18px;line-height:1.35;color:#0E0E0E">الربط مع فسح</span>
+          <span style="font-size:13px;line-height:1.7;color:rgba(14,14,14,.6)">بيان واحد يُرسل مباشرة إلى فسح</span>
+        </a>
+        <a href="#features" onClick="{{ menuGo }}" style="display:grid;gap:4px;padding:13px 0 14px;border-bottom:1px solid rgba(14,14,14,.1);border-right:2px solid transparent;padding-right:14px;transition:border-color .2s ease,background .2s ease" style-hover="border-right-color:#00C278;background:rgba(0,194,120,.07)">
+          <span style="font-family:Almarai,sans-serif;font-weight:800;font-size:18px;line-height:1.35;color:#0E0E0E">المزايا</span>
+          <span style="font-size:13px;line-height:1.7;color:rgba(14,14,14,.6)">خمس مزايا يقوم عليها العمل اليومي</span>
+        </a>
+        <a href="#fees" onClick="{{ menuGo }}" style="display:grid;gap:4px;padding:13px 0 14px;border-bottom:1px solid rgba(14,14,14,.1);border-right:2px solid transparent;padding-right:14px;transition:border-color .2s ease,background .2s ease" style-hover="border-right-color:#00C278;background:rgba(0,194,120,.07)">
+          <span style="font-family:Almarai,sans-serif;font-weight:800;font-size:18px;line-height:1.35;color:#0E0E0E">الرسوم</span>
+          <span style="font-size:13px;line-height:1.7;color:rgba(14,14,14,.6)">رسوم كل شحنة والربط المحاسبي</span>
+        </a>
+        <a href="#stages" onClick="{{ menuGo }}" style="display:grid;gap:4px;padding:13px 0 14px;border-bottom:1px solid rgba(14,14,14,.1);border-right:2px solid transparent;padding-right:14px;transition:border-color .2s ease,background .2s ease" style-hover="border-right-color:#00C278;background:rgba(0,194,120,.07)">
+          <span style="font-family:Almarai,sans-serif;font-weight:800;font-size:18px;line-height:1.35;color:#0E0E0E">كيف يعمل</span>
+          <span style="font-size:13px;line-height:1.7;color:rgba(14,14,14,.6)">أربع خطوات من فتح الملف إلى الأرشفة</span>
+        </a>
+        <a href="#faq" onClick="{{ menuGo }}" style="display:grid;gap:4px;padding:13px 0 14px;border-bottom:1px solid rgba(14,14,14,.1);border-right:2px solid transparent;padding-right:14px;transition:border-color .2s ease,background .2s ease" style-hover="border-right-color:#00C278;background:rgba(0,194,120,.07)">
+          <span style="font-family:Almarai,sans-serif;font-weight:800;font-size:18px;line-height:1.35;color:#0E0E0E">الأسئلة الشائعة</span>
+          <span style="font-size:13px;line-height:1.7;color:rgba(14,14,14,.6)">عشرة أسئلة يطرحها المخلّصون</span>
+        </a>
+    </div>
+    <div style="margin-top:{{ drawerFootTop }};width:100%;max-width:{{ drawerInnerW }};margin-left:auto;margin-right:auto;display:grid;gap:10px">
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px">
+        <a href="#demo" onClick="{{ openDemoFromMenu }}" style="display:block;text-align:center;background:#00C278;color:#0E0E0E;font-family:Almarai,sans-serif;font-weight:800;font-size:15.5px;padding:16px 18px;clip-path:{{ clipLg }}" style-hover="background:#0E0E0E;color:#FFFDFD">اطلب عرضاً تجريبياً</a>
+        <a href="Mutqin Ecosystem Site.dc.html" style="display:flex;align-items:center;justify-content:center;background:#F5F2EF;border:1px solid rgba(14,14,14,.14);font-family:Almarai,sans-serif;font-weight:800;font-size:14px;padding:0 20px;color:#0E0E0E" style-hover="background:#E8E3DD">EN</a>
       </div>
-      <div style="margin-top:38px;font-family:Almarai,sans-serif;font-weight:700;font-size:12.5px;color:rgba(255,253,253,.78)">مدعوم من علم</div>
+      <a href="mailto:info@mutqin.sa" style="text-align:center;font-size:14px;color:rgba(14,14,14,.6);direction:ltr" style-hover="color:#00A868">info@mutqin.sa</a>
     </div>
   </div>
-  <div style="position:absolute;left:50%;transform:translateX(-50%);bottom:44px;display:flex;gap:12px">
-    <sc-for list="{{ slideDots }}" as="d" hint-placeholder-count="2">
-      <button type="button" onClick="{{ d.select }}" aria-label="{{ d.label }}" style="position:relative;width:13px;height:13px;border-radius:50%;border:1px solid rgba(255,253,253,.6);padding:0;background:transparent;cursor:pointer;overflow:hidden">
-        <span style="position:absolute;inset:0;border-radius:50%;background:#FFFDFD;transform:scale({{ d.scale }});opacity:{{ d.op }};transition:transform .5s cubic-bezier(.32,.72,0,1),opacity .4s ease"></span>
-        <span style="position:absolute;inset:-1px;border-radius:50%;border:1px solid #FFFDFD;animation:{{ d.halo }}"></span>
-      </button>
-    </sc-for>
+</div>
+
+<section id="top" style="position:relative;height:{{ heroH }};min-height:{{ heroMinH }};overflow:hidden;background:#0E0E0E">
+  <div style="position:absolute;inset:0"><img src="{{ heroPhoto }}" alt="برج المراقبة في ميناء جدة الإسلامي وسفينة حاويات قادمة" style="width:100%;height:100%;object-fit:cover;object-position:{{ heroPhotoPos }};display:block" /></div>
+  <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(14,14,14,.74) 0%,rgba(14,14,14,.6) 45%,rgba(14,14,14,.84) 100%)"></div>
+  <div style="position:{{ heroPos }};inset:0;pointer-events:none;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:{{ heroPad }}">
+    <div style="max-width:1120px">
+      <div style="display:inline-flex;align-items:center;gap:12px;background:rgba(255,253,253,.13);backdrop-filter:blur(10px);border:1px solid rgba(255,253,253,.2);border-radius:999px;padding:8px 8px 8px 18px;margin-bottom:30px">
+        <span style="font-family:Almarai,sans-serif;font-weight:700;font-size:13.5px;color:#FFFDFD">مرتبط مباشرة بمنصة فسح</span>
+        <span style="background:#FFFDFD;border-radius:999px;padding:5px 11px;display:flex"><img src="photos/fasah-logo.png" alt="فسح" style="height:16px;display:block;object-fit:contain" /></span>
+      </div>
+      <h1 style="margin:0;min-height:{{ heroTitleH }};display:flex;align-items:center;justify-content:center;font-family:Almarai,sans-serif;font-weight:800;font-size:{{ heroTitleSize }};line-height:1.32;color:#FFFDFD;text-wrap:balance">{{ heroTitle }}</h1>
+      <p style="margin:{{ heroBodyTop }} auto 0;max-width:70ch;min-height:{{ heroBodyH }};font-size:{{ heroBodySize }};line-height:1.95;color:rgba(255,253,253,.84);text-wrap:pretty">{{ heroBody }}</p>
+      <div style="display:flex;flex-direction:{{ heroBtnDir }};gap:{{ heroBtnGap }};align-items:{{ heroBtnAlign }};justify-content:center;flex-wrap:wrap;margin-top:{{ heroBtnTop }};pointer-events:auto">
+        <a href="#demo" onClick="{{ openDemo }}" style="text-align:center;width:{{ heroBtnW }};background:#00C278;color:#0E0E0E;font-weight:700;font-size:16px;clip-path:{{ clipLg }};padding:17px 34px" style-hover="background:#FFFDFD">اطلب عرضاً تجريبياً</a>
+        <a href="#stages" style="text-align:center;width:{{ heroBtnW }};background:rgba(255,253,253,.16);backdrop-filter:blur(10px);color:#FFFDFD;font-weight:400;font-size:16px;clip-path:{{ clipLg }};padding:18px 35px" style-hover="background:rgba(255,253,253,.3)">شاهد كيف يعمل</a>
+      </div>
+      <div style="margin-top:38px;display:inline-flex;align-items:center;gap:13px">
+        <span style="font-family:Almarai,sans-serif;font-weight:700;font-size:12.5px;line-height:1.9;color:rgba(255,253,253,.78)">Powered by</span>
+        <img src="brand/elm-mark-light.png" alt="علم" style="height:40px;display:block" />
+      </div>
+    </div>
   </div>
 </section>
 
@@ -79,8 +141,7 @@
   <div style="max-width:1560px;margin:0 auto">
     <div style="max-width:{{ aboutW }};margin:0 auto;text-align:center">
       <div style="font-family:Almarai,sans-serif;font-weight:700;font-size:13px;color:#00A868">من نحن</div>
-      <h2 style="margin:28px 0 0;font-family:Almarai,sans-serif;font-weight:800;font-size:{{ aboutSize }};line-height:1.42;text-wrap:balance">متقن منصة سعودية لمكاتب التخليص الجمركي المرخّصة، مبنية على طريقة عمل المخلّصين فعلاً.</h2>
-      <p style="margin:26px auto 0;max-width:56ch;font-size:17.5px;line-height:1.95;color:rgba(14,14,14,.68);text-wrap:pretty">الملف والبيان والميناء والعميل والفاتورة في مكان واحد، مرتبط مباشرة بمنصة فسح.</p>
+      <h2 style="margin:28px 0 0;font-family:Almarai,sans-serif;font-weight:800;font-size:{{ aboutSize }};line-height:1.42;text-wrap:balance">متقن نظام سعودي لمكاتب التخليص الجمركي المرخّصة، صُمّم بما يتوافق مع طبيعة عمل المخلّص الجمركي اليومية.</h2>
     </div>
     <div style="display:grid;grid-template-columns:{{ col3 }};gap:18px;margin-top:{{ pillarGap }}">
       <sc-for list="{{ pillars }}" as="p" hint-placeholder-count="3">
@@ -103,7 +164,7 @@
       <p style="margin:0;max-width:46ch;font-size:17px;line-height:1.95;color:rgba(14,14,14,.7);text-wrap:pretty">تخليص حاوية واحدة لا يشبه تخليص ألف طرد في ليلة واحدة. مرّر المؤشر على أي بطاقة لترى ما يتولّاه النظام. لكل مسار مراحله ومستنداته وتقاريره.</p>
     </div>
     <div style="display:grid;grid-template-columns:{{ colSector }};gap:18px;margin-top:46px">
-      <sc-for list="{{ sectors }}" as="s" hint-placeholder-count="4">
+      <sc-for list="{{ sectors }}" as="s" hint-placeholder-count="3">
         <div onMouseEnter="{{ s.enter }}" onMouseLeave="{{ s.leave }}" style="position:relative;height:{{ sectorH }};overflow:hidden;background:#0E0E0E;clip-path:{{ clipCard }}">
           <img src="{{ s.photo }}" alt="{{ s.alt }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block" />
           <span style="position:absolute;inset:0;pointer-events:none;background:{{ s.veil }};transition:background .35s ease"></span>
@@ -111,7 +172,7 @@
             <span style="font-family:Almarai,sans-serif;font-weight:700;font-size:12.5px;color:#FFFDFD;text-shadow:0 1px 12px rgba(14,14,14,.8)">{{ s.code }}</span>
             <span style="font-family:Almarai,sans-serif;font-weight:800;font-size:{{ sectorTitle }};line-height:1.32;color:#FFFDFD;text-shadow:0 2px 18px rgba(14,14,14,.75)">{{ s.name }}</span>
             <span style="font-size:15.5px;line-height:1.95;color:rgba(255,253,253,.94);max-width:34ch;opacity:{{ s.textOpacity }};max-height:{{ s.textHeight }};overflow:hidden;transition:opacity .3s ease,max-height .35s ease">{{ s.copy }}</span>
-            <a href="#demo" style="pointer-events:auto;align-self:flex-start;margin-top:4px;border-bottom:2px solid #00C278;padding-bottom:5px;font-family:Almarai,sans-serif;font-weight:700;font-size:15px;color:#FFFDFD">استفسر</a>
+            <a href="#demo" onClick="{{ openDemo }}" style="pointer-events:auto;align-self:flex-start;margin-top:4px;border-bottom:2px solid #00C278;padding-bottom:5px;font-family:Almarai,sans-serif;font-weight:700;font-size:15px;color:#FFFDFD">استفسر</a>
           </span>
         </div>
       </sc-for>
@@ -127,12 +188,12 @@
       <div>
         <div style="display:inline-flex;align-items:center;gap:10px;font-family:Almarai,sans-serif;font-weight:700;font-size:13px;color:#00C278"><span style="width:7px;height:7px;border-radius:50%;background:#00C278;animation:blip 1.8s ease-in-out infinite"></span>التخليص والربط مع فسح</div>
         <h2 style="margin:22px 0 0;max-width:20ch;font-family:Almarai,sans-serif;font-weight:800;font-size:{{ h2 }};line-height:1.34;color:#FFFDFD">بيان واحد، يُكتب مرة واحدة</h2>
-        <p style="margin:22px 0 0;max-width:44ch;font-size:17.5px;line-height:1.95;color:rgba(255,253,253,.78);text-wrap:pretty">ترسل البيان من شاشتك أنت، وتعود حالة الفسح وحدها إلى الملف الذي يفتحه فريقك وعميلك أصلاً.</p>
-        <div style="margin-top:32px;display:grid;gap:16px">
+        <p style="margin:22px 0 0;max-width:48ch;font-size:17.5px;line-height:1.95;color:rgba(255,253,253,.78);text-wrap:pretty">أدخل بيانات البيان مرة واحدة، ثم أرسلها إلى منصة فسح مباشرة من النظام. وتعود حالة البيان وتحديثاته إلى ملف المعاملة نفسه، ليتمكن فريقك وعميلك من متابعة آخر المستجدات من مكان واحد.</p>
+        <div style="margin-top:32px;display:grid;gap:18px">
           <sc-for list="{{ clearancePoints }}" as="p" hint-placeholder-count="4">
-            <div style="display:grid;grid-template-columns:26px 1fr;gap:14px;align-items:center">
-              <span style="width:26px;height:26px;border-radius:9px;background:rgba(0,194,120,.18);color:#00C278;display:flex;align-items:center;justify-content:center;font-size:13px">&#10003;</span>
-              <span style="font-size:16.5px;font-weight:700;color:rgba(255,253,253,.92);line-height:1.6">{{ p.text }}</span>
+            <div style="display:grid;grid-template-columns:26px minmax(0,1fr);gap:14px;align-items:start">
+              <span style="width:26px;height:26px;border-radius:9px;background:rgba(0,194,120,.18);color:#00C278;display:flex;align-items:center;justify-content:center;font-size:13px;margin-top:2px">&#10003;</span>
+              <span style="font-size:15.5px;line-height:1.85;color:rgba(255,253,253,.88);text-wrap:pretty">{{ p.text }}</span>
             </div>
           </sc-for>
         </div>
@@ -153,9 +214,9 @@
             <span style="width:8px;height:8px;border-radius:50%;background:{{ t.dot }};animation:{{ t.anim }}"></span>
           </div>
         </sc-for>
-        <div style="margin-top:18px;display:flex;justify-content:space-between;align-items:center;gap:14px;background:rgba(0,194,120,.14);border-radius:12px;padding:13px 16px">
-          <span style="font-size:13.5px;font-weight:700">حقول تُكتب مرتين</span>
-          <span style="font-family:Almarai,sans-serif;font-weight:800;font-size:20px;color:#00C278">٠</span>
+        <div style="margin-top:18px;display:flex;align-items:center;gap:12px;background:rgba(0,194,120,.14);border-radius:12px;padding:15px 16px">
+          <span style="width:22px;height:22px;flex:0 0 auto;border-radius:7px;background:rgba(0,194,120,.28);color:#00C278;display:flex;align-items:center;justify-content:center;font-size:12px">&#10003;</span>
+          <span style="font-size:14.5px;font-weight:700;line-height:1.6">إدخال واحد للبيانات، دون تكرار</span>
         </div>
       </div>
     </div>
@@ -169,18 +230,17 @@
       <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,14,14,.3) 0%,rgba(14,14,14,.7) 100%)"></div>
       <div style="position:absolute;right:0;top:0;padding:44px;color:#FFFDFD">
         <div style="font-family:Almarai,sans-serif;font-weight:700;font-size:13px;color:#FFFDFD;margin-bottom:16px">المزايا</div>
-        <div style="max-width:16ch;font-family:Almarai,sans-serif;font-weight:800;font-size:32px;line-height:1.36">كل ما يحتاجه مكتب التخليص</div>
+        <div style="max-width:16ch;font-family:Almarai,sans-serif;font-weight:800;font-size:32px;line-height:1.36">كل ما يحتاجه مكتب التخليص في مكان واحد</div>
       </div>
     </div>
     <div style="background:#FFFDFD;border:1px solid rgba(14,14,14,.12);padding:clamp(30px,4vw,52px) clamp(24px,3.5vw,48px);margin-right:{{ cardShift }};box-shadow:0 30px 70px rgba(14,14,14,.1);position:relative;z-index:2">
-      <p style="margin:0 0 30px;font-size:16.5px;line-height:1.95;color:rgba(14,14,14,.7);text-wrap:pretty">مبني على طريقة عمل المخلّص الجمركي نفسها، لا على نظام محاسبي عام حاول أحدهم ثنيه ليناسب العمل.</p>
       <div style="border-top:1px solid rgba(14,14,14,.16)">
-        <sc-for list="{{ features }}" as="f" hint-placeholder-count="6">
-          <div style="display:grid;grid-template-columns:46px minmax(0,1fr);gap:20px;padding:20px 0;border-bottom:1px solid rgba(14,14,14,.1)">
+        <sc-for list="{{ features }}" as="f" hint-placeholder-count="5">
+          <div style="display:grid;grid-template-columns:46px minmax(0,1fr);gap:20px;padding:22px 0;border-bottom:1px solid rgba(14,14,14,.1)">
             <span style="font-family:Almarai,sans-serif;font-weight:700;font-size:12.5px;color:#00A868;padding-top:4px">{{ f.num }}</span>
             <span>
               <span style="display:block;font-family:Almarai,sans-serif;font-weight:800;font-size:20px;line-height:1.4">{{ f.name }}</span>
-              <span style="display:block;margin-top:7px;font-size:14.5px;line-height:1.9;color:rgba(14,14,14,.66)">{{ f.copy }}</span>
+              <span style="display:block;margin-top:8px;font-size:14.5px;line-height:1.9;color:rgba(14,14,14,.66)">{{ f.copy }}</span>
             </span>
           </div>
         </sc-for>
@@ -189,100 +249,57 @@
   </div>
 </section>
 
-<section id="payments" style="padding:{{ padY }} {{ padX }} 0">
+<section id="fees" style="padding:{{ padY }} {{ padX }} 0">
   <div style="max-width:1560px;margin:0 auto;display:grid;grid-template-columns:{{ col2 }};gap:{{ gapMid }};align-items:center">
     <div>
-      <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(0,194,120,.14);border-radius:999px;padding:9px 18px;font-family:Almarai,sans-serif;font-weight:700;font-size:13px;color:#0B7F52">المدفوعات ورأس المال</div>
-      <h2 style="margin:24px 0 0;max-width:21ch;font-family:Almarai,sans-serif;font-weight:800;font-size:{{ h2 }};line-height:1.36">لا تموّل عملاءك من حساب مكتبك</h2>
-      <p style="margin:22px 0 0;max-width:44ch;font-size:17.5px;line-height:1.95;color:rgba(14,14,14,.7);text-wrap:pretty">الرسوم تُسدَّد من الملف، والتحصيل يجري من داخل الفاتورة، والفجوة النقدية بينهما تُغطّى — فلا تبقى طاقة المكتب رهينة رصيد هذا الصباح.</p>
-      <div style="margin-top:32px;display:grid;gap:16px">
-        <sc-for list="{{ paymentPoints }}" as="p" hint-placeholder-count="4">
-          <div style="display:grid;grid-template-columns:26px 1fr;gap:14px;align-items:center">
-            <span style="width:26px;height:26px;border-radius:9px;background:rgba(0,194,120,.16);color:#0B7F52;display:flex;align-items:center;justify-content:center;font-size:13px">&#10003;</span>
-            <span style="font-size:16.5px;font-weight:700;line-height:1.6">{{ p.text }}</span>
+      <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(0,194,120,.14);border-radius:999px;padding:9px 18px;font-family:Almarai,sans-serif;font-weight:700;font-size:13px;color:#0B7F52">الرسوم والربط المحاسبي</div>
+      <h2 style="margin:24px 0 0;max-width:21ch;font-family:Almarai,sans-serif;font-weight:800;font-size:{{ h2 }};line-height:1.36">رسوم كل شحنة، جاهزة لنظامك المحاسبي</h2>
+      <p style="margin:22px 0 0;max-width:48ch;font-size:17.5px;line-height:1.95;color:rgba(14,14,14,.7);text-wrap:pretty">أضف رسوم كل شحنة ومصروفاتها على المعاملة نفسها، وتابع الدخل والتكاليف تحتها مباشرة. ترسل هذه البيانات عبر الربط إلى نظامك المحاسبي لإصدار الفاتورة الضريبية.</p>
+      <div style="margin-top:32px;display:grid;gap:18px">
+        <sc-for list="{{ feePoints }}" as="p" hint-placeholder-count="3">
+          <div style="display:grid;grid-template-columns:26px minmax(0,1fr);gap:14px;align-items:start">
+            <span style="width:26px;height:26px;border-radius:9px;background:rgba(0,194,120,.16);color:#0B7F52;display:flex;align-items:center;justify-content:center;font-size:13px;margin-top:2px">&#10003;</span>
+            <span style="font-size:15.5px;line-height:1.85;color:rgba(14,14,14,.78);text-wrap:pretty">{{ p.text }}</span>
           </div>
         </sc-for>
       </div>
-      <a href="#demo" style="display:inline-block;margin-top:34px;background:#00C278;color:#0E0E0E;clip-path:{{ clipLg }};padding:17px 34px;font-family:Almarai,sans-serif;font-size:16px;font-weight:700" style-hover="background:#0E0E0E;color:#FFFDFD">تحدّث إلينا عن التمويل</a>
     </div>
     <div style="order:{{ flipOrder }};position:relative;border-radius:{{ radius }};overflow:hidden;background:#0E0E0E;min-height:{{ splitH }}">
       <img src="photos/jeddah-port.jpg" alt="محطة الميناء عند الغروب" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block" />
       <span style="position:absolute;inset:0;background:linear-gradient(190deg,rgba(14,14,14,.42) 0%,rgba(14,14,14,.9) 100%)"></span>
       <div style="position:relative;padding:{{ splitPad }};display:flex;flex-direction:column;justify-content:flex-end;gap:14px;min-height:{{ splitH }}">
-        <div style="background:#00C278;color:#0E0E0E;border-radius:{{ innerRadius }};padding:24px 26px">
-          <div style="font-size:13px;font-weight:700;opacity:.78">محفظة المكتب</div>
-          <div style="margin-top:11px;font-family:Almarai,sans-serif;font-weight:800;font-size:27px;line-height:1.2">٤١٢,٩٠٠ ر.س</div>
-          <div style="margin-top:16px;display:flex;justify-content:space-between;align-items:center;gap:14px">
-            <span style="font-family:Almarai,sans-serif;font-weight:700;font-size:12px;opacity:.7">متاح الآن</span>
-            <span style="background:rgba(14,14,14,.16);clip-path:{{ clipSm }};padding:7px 15px;font-size:12.5px;font-weight:700">إضافة رصيد</span>
+        <div style="background:#FFFDFD;border-radius:{{ innerRadius }};padding:22px 24px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding-bottom:14px;border-bottom:1px solid rgba(14,14,14,.1)">
+            <span style="font-family:Almarai,sans-serif;font-weight:800;font-size:15px">رسوم المعاملة</span>
+            <span style="font-family:Almarai,sans-serif;font-size:11.5px;color:rgba(14,14,14,.52)">متقن-٢٠٢٦-٠٤٨٧١</span>
           </div>
-        </div>
-        <div style="background:#FFFDFD;border-radius:{{ innerRadius }};padding:20px 24px">
-          <sc-for list="{{ paymentRows }}" as="r" hint-placeholder-count="3">
-            <div style="padding:12px 0;border-bottom:1px solid rgba(14,14,14,.08);display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center">
+          <sc-for list="{{ feeRows }}" as="r" hint-placeholder-count="3">
+            <div style="padding:12px 0;border-bottom:1px solid rgba(14,14,14,.08);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:center">
               <div>
                 <div style="font-size:14px;font-weight:700">{{ r.label }}</div>
-                <div style="margin-top:3px;font-family:Almarai,sans-serif;font-size:11.5px;color:rgba(14,14,14,.52)">{{ r.ref }}</div>
+                <div style="margin-top:3px;font-family:Almarai,sans-serif;font-size:11.5px;color:rgba(14,14,14,.52)">{{ r.note }}</div>
               </div>
-              <div style="text-align:left">
-                <div style="font-family:Almarai,sans-serif;font-size:13.5px;font-weight:700">{{ r.amount }}</div>
-                <div style="margin-top:3px;font-size:11.5px;font-weight:700;color:{{ r.stateColor }}">{{ r.state }}</div>
-              </div>
+              <div style="font-family:Almarai,sans-serif;font-size:13.5px;font-weight:700;text-align:left;color:{{ r.color }}">{{ r.amount }}</div>
             </div>
           </sc-for>
-          <div style="margin-top:16px">
-            <div style="display:flex;justify-content:space-between;font-family:Almarai,sans-serif;font-weight:700;font-size:11.5px;color:#0B7F52"><span>متقن يغطّي الفجوة</span><span>يوم ٠ &#8592; ٤٥</span></div>
-            <div style="margin-top:8px;height:6px;border-radius:3px;background:rgba(0,194,120,.2);position:relative;overflow:hidden"><span style="position:absolute;right:0;top:0;height:6px;border-radius:3px;background:#00C278;animation:bridgeAr 4s ease-in-out infinite"></span></div>
+          <div style="margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div style="background:rgba(0,194,120,.12);border-radius:12px;padding:13px 15px">
+              <div style="font-family:Almarai,sans-serif;font-weight:700;font-size:11.5px;color:#0B7F52">الدخل</div>
+              <div style="margin-top:5px;font-family:Almarai,sans-serif;font-weight:800;font-size:17px">٨,٠٠٠ ر.س</div>
+            </div>
+            <div style="background:rgba(14,14,14,.05);border-radius:12px;padding:13px 15px">
+              <div style="font-family:Almarai,sans-serif;font-weight:700;font-size:11.5px;color:rgba(14,14,14,.6)">التكاليف</div>
+              <div style="margin-top:5px;font-family:Almarai,sans-serif;font-weight:800;font-size:17px">١٨,٨٨٠ ر.س</div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="carriers" style="padding:{{ padY }} {{ padX }} 0">
-  <div style="max-width:1560px;margin:0 auto;display:grid;grid-template-columns:{{ col2 }};gap:{{ gapMid }};align-items:center">
-    <div style="border-radius:{{ radius }};overflow:hidden;background:#FFFDFD;border:1px solid rgba(14,14,14,.12)">
-      <div style="position:relative;height:{{ carrierImgH }};background:#0E0E0E">
-        <img src="photos/transit-border.jpg" alt="شاحنة حاويات تغادر المحطة" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block" />
-        <span style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,14,14,.06) 0%,rgba(14,14,14,.74) 100%)"></span>
-        <div style="position:absolute;left:0;right:0;bottom:0;padding:24px 26px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;color:#FFFDFD">
-          <div>
-            <div style="font-family:Almarai,sans-serif;font-weight:700;font-size:11.5px;color:rgba(255,253,253,.72)">طلب نقل</div>
-            <div style="margin-top:7px;font-family:Almarai,sans-serif;font-weight:800;font-size:19px">جدة الإسلامي &#8592; الرياض</div>
-            <div style="margin-top:4px;font-family:Almarai,sans-serif;font-size:12px;color:rgba(255,253,253,.68)">حاوية ٤٠ قدم &#183; متقن-٢٠٢٦-٠٤٨٧١</div>
+        <div style="background:#00C278;color:#0E0E0E;border-radius:{{ innerRadius }};padding:18px 22px">
+          <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px 14px">
+            <span style="font-family:Almarai,sans-serif;font-weight:800;font-size:14.5px">تُرسل عبر الربط إلى نظامك المحاسبي</span>
           </div>
-          <span style="display:flex;align-items:center;gap:8px;white-space:nowrap;flex:0 0 auto;font-family:Almarai,sans-serif;font-weight:700;font-size:11.5px;background:rgba(255,253,253,.16);backdrop-filter:blur(10px);border-radius:999px;padding:8px 14px"><span style="width:7px;height:7px;border-radius:50%;background:#00C278;animation:blip 2s ease-in-out infinite"></span>٣ عروض</span>
+          <div style="margin-top:12px;height:6px;border-radius:3px;background:rgba(14,14,14,.16);position:relative;overflow:hidden"><span style="position:absolute;right:0;top:0;height:6px;border-radius:3px;background:#0E0E0E;animation:bridgeAr 4s ease-in-out infinite"></span></div>
         </div>
       </div>
-      <sc-for list="{{ quotes }}" as="q" hint-placeholder-count="3">
-        <div style="padding:18px 26px;border-bottom:1px solid rgba(14,14,14,.08);background:{{ q.bg }};display:grid;grid-template-columns:1fr auto auto;gap:{{ quoteGap }};align-items:center">
-          <div>
-            <div style="font-size:15px;font-weight:700">{{ q.name }}</div>
-            <div style="margin-top:4px;font-family:Almarai,sans-serif;font-size:12px;color:rgba(14,14,14,.55)">{{ q.terms }}</div>
-          </div>
-          <div style="text-align:left">
-            <div style="font-family:Almarai,sans-serif;font-size:14.5px;font-weight:700">{{ q.rate }}</div>
-            <div style="margin-top:4px;font-family:Almarai,sans-serif;font-size:11.5px;color:rgba(14,14,14,.52)">{{ q.eta }}</div>
-          </div>
-          <span style="background:{{ q.btnBg }};color:{{ q.btnFg }};clip-path:{{ clipSm }};padding:10px 21px;font-size:13.5px;font-weight:700;white-space:nowrap">{{ q.action }}</span>
-        </div>
-      </sc-for>
-      <div style="padding:17px 26px;font-size:13.5px;line-height:1.8;color:rgba(14,14,14,.62)">الأسعار المتعاقد عليها تُطبَّق تلقائياً، ومن لا يوجد معه اتفاق يقدّم عرضه عند الطلب.</div>
-    </div>
-    <div>
-      <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(0,194,120,.14);border-radius:999px;padding:9px 18px;font-family:Almarai,sans-serif;font-weight:700;font-size:13px;color:#0B7F52">الناقلون والنقل</div>
-      <h2 style="margin:24px 0 0;max-width:21ch;font-family:Almarai,sans-serif;font-weight:800;font-size:{{ h2 }};line-height:1.36">انقلها إلى أي مكان، دون مكالمة واحدة</h2>
-      <p style="margin:22px 0 0;max-width:44ch;font-size:17.5px;line-height:1.95;color:rgba(14,14,14,.7);text-wrap:pretty">ينتهي التخليص وتبقى الشحنة بحاجة إلى نقل. اطلب الأسعار، واحفظ عقودك، واحجز الشاحنة من الملف الذي فُسح للتو.</p>
-      <div style="margin-top:32px;display:grid;gap:16px">
-        <sc-for list="{{ carrierPoints }}" as="p" hint-placeholder-count="4">
-          <div style="display:grid;grid-template-columns:26px 1fr;gap:14px;align-items:center">
-            <span style="width:26px;height:26px;border-radius:9px;background:rgba(0,194,120,.16);color:#0B7F52;display:flex;align-items:center;justify-content:center;font-size:13px">&#10003;</span>
-            <span style="font-size:16.5px;font-weight:700;line-height:1.6">{{ p.text }}</span>
-          </div>
-        </sc-for>
-      </div>
-      <a href="#demo" style="display:inline-block;margin-top:34px;background:#00C278;color:#0E0E0E;clip-path:{{ clipLg }};padding:17px 34px;font-family:Almarai,sans-serif;font-size:16px;font-weight:700" style-hover="background:#0E0E0E;color:#FFFDFD">احجز جولة تعريفية</a>
     </div>
   </div>
 </section>
@@ -301,8 +318,8 @@
         <div style="position:relative;min-height:{{ stepCardH }};overflow:hidden;background:#0E0E0E;border-radius:{{ radius }}">
           <img src="{{ p.photo }}" alt="{{ p.alt }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:{{ p.pos }};display:block" />
           <span style="position:absolute;inset:0;background:{{ p.veil }}"></span>
-          <span style="position:absolute;right:36px;top:50%;transform:translateY(-50%);font-family:Almarai,sans-serif;font-weight:800;font-size:{{ ghostSize }};line-height:1;color:rgba(255,253,253,.16);pointer-events:none">{{ p.n }}</span>
-          <div style="position:relative;margin-right:{{ stepTextX }};margin-left:36px;padding:38px 0;color:#FFFDFD">
+          <span style="position:absolute;right:{{ ghostX }};top:{{ ghostTop }};transform:{{ ghostShift }};font-family:Almarai,sans-serif;font-weight:800;font-size:{{ ghostSize }};line-height:1;color:rgba(255,253,253,.16);pointer-events:none">{{ p.n }}</span>
+          <div style="position:relative;margin-right:{{ stepTextX }};margin-left:{{ ghostX }};padding:{{ stepTextPad }};color:#FFFDFD">
             <div style="font-family:Almarai,sans-serif;font-weight:800;font-size:22px;line-height:1.4">{{ p.head }}</div>
             <p style="margin:11px 0 0;font-size:15px;line-height:1.9;color:rgba(255,253,253,.84);text-wrap:pretty">{{ p.body }}</p>
             <div style="margin-top:16px;display:inline-flex;font-family:Almarai,sans-serif;font-weight:700;font-size:12px;color:#00C278;background:rgba(0,194,120,.16);padding:6px 12px">{{ p.tag }}</div>
@@ -312,7 +329,6 @@
     </div>
   </div>
 </section>
-
 
 <section id="impact" style="margin-top:{{ padY }};background:#FFFDFD;color:#0E0E0E;padding:clamp(52px,6vw,84px) {{ padX }}">
   <div style="max-width:1560px;margin:0 auto">
@@ -327,7 +343,8 @@
       <sc-for list="{{ impact }}" as="i" hint-placeholder-count="3">
         <div style="position:relative;padding:{{ i.pad }};border-left:{{ i.divider }};border-top:{{ i.topRule }};display:flex;flex-direction:column;gap:16px;overflow:hidden">
           <div style="position:relative;font-family:Almarai,sans-serif;font-weight:800;font-size:clamp(36px,4.2vw,58px);line-height:1.1;color:#00A868">{{ i.figure }}</div>
-          <p style="position:relative;margin:0;max-width:24ch;font-size:15px;line-height:1.9;color:rgba(14,14,14,.7)">{{ i.copy }}</p>
+          <div style="position:relative;font-family:Almarai,sans-serif;font-weight:800;font-size:17px;line-height:1.5">{{ i.label }}</div>
+          <p style="position:relative;margin:0;max-width:30ch;font-size:15px;line-height:1.9;color:rgba(14,14,14,.7)">{{ i.copy }}</p>
         </div>
       </sc-for>
     </div>
@@ -379,63 +396,62 @@
         <h2 style="margin:0 auto;max-width:24ch;font-family:Almarai,sans-serif;font-weight:800;font-size:{{ h2 }};line-height:1.34;color:#0E0E0E">أرِنا معاملة واحدة، ونريك الفرق</h2>
         <p style="margin:24px auto 0;max-width:52ch;font-size:17.5px;line-height:1.95;color:rgba(14,14,14,.68);text-wrap:pretty">عرض تجريبي مباشر مدته ٢٥ دقيقة على معاملة من مكتبك أنت. أخبرنا ما الرخصة التي تحملها ويصلك الرد خلال يوم عمل واحد.</p>
         <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:38px">
-          <a href="mailto:info@mutqin.sa" style="display:inline-block;background:#00C278;color:#0E0E0E;clip-path:{{ clipLg }};padding:18px 35px;font-family:Almarai,sans-serif;font-size:16.5px;font-weight:700" style-hover="background:#0E0E0E;color:#FFFDFD">اطلب عرضاً تجريبياً</a>
-          <a href="mailto:info@mutqin.sa" style="display:inline-block;background:#F5F2EF;color:#0E0E0E;clip-path:{{ clipLg }};padding:18px 35px;font-family:Almarai,sans-serif;font-size:16.5px;font-weight:400" style-hover="background:#E8E3DD">تواصل معنا</a>
+          <a href="#demo" onClick="{{ openDemo }}" style="display:inline-block;background:#00C278;color:#0E0E0E;clip-path:{{ clipLg }};padding:18px 35px;font-family:Almarai,sans-serif;font-size:16.5px;font-weight:700" style-hover="background:#0E0E0E;color:#FFFDFD">اطلب عرضاً تجريبياً</a>
+          <a href="#demo" onClick="{{ openContact }}" style="display:inline-block;background:#F5F2EF;color:#0E0E0E;clip-path:{{ clipLg }};padding:18px 35px;font-family:Almarai,sans-serif;font-size:16.5px;font-weight:400" style-hover="background:#E8E3DD">تواصل معنا</a>
         </div>
-        <div style="margin-top:30px;font-size:15px;color:rgba(14,14,14,.6)">للبنوك وشركات التأمين والنقل: <a href="mailto:info@mutqin.sa" style="color:#00A868;text-decoration:underline;text-underline-offset:3px">أدرج خدمتك على متقن</a></div>
       </div>
     </div>
 
     <footer style="position:relative;background:#0E0E0E;color:#FFFDFD;padding:{{ footPadSeam }}">
       <div style="max-width:1560px;margin:0 auto;text-align:center">
-        <img src="brand/symbol-green.svg" alt="" aria-hidden="true" style="position:absolute;top:0;left:50%;transform:translate(-50%,-50%);height:{{ emblemH }};display:block" />
-        <img src="brand/wordmark-light.svg" alt="متقن Mutqin" style="height:36px;display:block;margin:0 auto" />
-        <p style="margin:18px auto 0;max-width:44ch;font-family:Almarai,sans-serif;font-weight:700;font-size:18px;line-height:1.7;color:rgba(255,253,253,.72)">المنصة التي تعمل عليها مكاتب التخليص المرخّصة<br />في المملكة.</p>
+        <div aria-hidden="true" style="position:absolute;top:0;left:50%;transform:translate(-50%,-50%);height:{{ emblemH }};aspect-ratio:242.61/280.14">
+          <svg viewBox="567 400 242.61 280.14" style="position:absolute;inset:0;width:100%;height:100%;clip-path:inset(0 0 50% 0)"><path d="M809.61 470.04 L809.61 610.11 L688.30 680.14 L567.00 610.11 L567.00 470.04 L688.30 400.00 L809.61 470.04 Z M584.80 480.36 L688.30 537.94 L688.31 659.50 L791.81 599.78 L791.81 480.36 L688.31 420.64 L584.80 480.36 Z" fill="#0E0E0E"></path></svg>
+          <svg viewBox="567 400 242.61 280.14" style="position:absolute;inset:0;width:100%;height:100%;clip-path:inset(50% 0 0 0)"><path d="M809.61 470.04 L809.61 610.11 L688.30 680.14 L567.00 610.11 L567.00 470.04 L688.30 400.00 L809.61 470.04 Z M584.80 480.36 L688.30 537.94 L688.31 659.50 L791.81 599.78 L791.81 480.36 L688.31 420.64 L584.80 480.36 Z" fill="#FFFDFD"></path></svg>
+        </div>
+        <img src="brand/wordmark-light.svg" alt="متقن Mutqin" style="height:{{ footWordmark }};display:block;margin:0 auto" />
+        <p style="margin:{{ footTagTop }} auto 0;max-width:46ch;font-family:Almarai,sans-serif;font-weight:700;font-size:{{ footTagSize }};line-height:1.7;color:rgba(255,253,253,.72)">النظام الذي تعمل عليه مكاتب التخليص المرخّصة<br />في المملكة.</p>
       </div>
-      <div style="max-width:1560px;margin:56px auto 0;display:grid;grid-template-columns:{{ footCols }};gap:44px;align-items:start">
-        <div>
+      <div style="max-width:1560px;margin:{{ footGridTop }} auto 0;display:grid;grid-template-columns:{{ footCols }};gap:{{ footGap }};align-items:start">
+        <div style="grid-column:{{ footContactSpan }};order:{{ footContactOrder }}">
           <div style="font-family:Almarai,sans-serif;font-weight:800;font-size:17px">تواصل</div>
-          <div style="margin-top:14px;display:grid;gap:8px;font-size:14.5px;line-height:1.8;color:rgba(255,253,253,.72)">
+          <div style="margin-top:{{ footListTop }};display:grid;gap:10px;font-size:15px;line-height:1.8;color:rgba(255,253,253,.72)">
             <span>الرياض، المملكة العربية السعودية</span>
             <a href="mailto:info@mutqin.sa" style="color:rgba(255,253,253,.9);text-decoration:underline;text-underline-offset:3px;direction:ltr;text-align:right" style-hover="color:#00C278">info@mutqin.sa</a>
           </div>
           <a href="https://www.elm.sa" style="margin-top:24px;display:inline-flex;align-items:center;gap:13px" style-hover="opacity:.75">
-            <span style="font-family:Almarai,sans-serif;font-weight:700;font-size:11.5px;color:rgba(255,253,253,.55)">مدعوم من</span>
+            <span style="font-family:Almarai,sans-serif;font-weight:700;font-size:11.5px;color:rgba(255,253,253,.55)">Powered by</span>
             <img src="brand/elm-mark-light.png" alt="علم" style="height:48px;display:block" />
           </a>
         </div>
         <div>
-          <div style="font-family:Almarai,sans-serif;font-weight:800;font-size:17px">المنصة</div>
-          <div style="margin-top:14px;display:grid;gap:10px;font-size:14.5px">
+          <div style="font-family:Almarai,sans-serif;font-weight:800;font-size:17px">النظام</div>
+          <div style="margin-top:{{ footListTop }};display:grid;gap:{{ footListGap }};font-size:15px">
             <a href="#clearance" style="color:rgba(255,253,253,.72)">التخليص والربط مع فسح</a>
-            <a href="#payments" style="color:rgba(255,253,253,.72)">المدفوعات ورأس المال</a>
-            <a href="#carriers" style="color:rgba(255,253,253,.72)">الناقلون</a>
+            <a href="#fees" style="color:rgba(255,253,253,.72)">الرسوم والربط المحاسبي</a>
             <a href="#stages" style="color:rgba(255,253,253,.72)">كيف يعمل</a>
             <a href="#features" style="color:rgba(255,253,253,.72)">المزايا</a>
           </div>
         </div>
         <div>
           <div style="font-family:Almarai,sans-serif;font-weight:800;font-size:17px">المنظومة</div>
-          <div style="margin-top:14px;display:grid;gap:10px;font-size:14.5px">
+          <div style="margin-top:{{ footListTop }};display:grid;gap:{{ footListGap }};font-size:15px">
             <a href="#sectors" style="color:rgba(255,253,253,.72)">لمن هو</a>
-            <a href="#demo" style="color:rgba(255,253,253,.72)">انضم كمزوّد خدمة</a>
-            <a href="index.html" style="color:rgba(255,253,253,.72)">English</a>
+            <a href="#faq" style="color:rgba(255,253,253,.72)">الأسئلة الشائعة</a>
+            <a href="Mutqin Ecosystem Site.dc.html" style="color:rgba(255,253,253,.72)">English</a>
           </div>
         </div>
         <div style="justify-self:{{ footEnd }}">
           <div style="font-family:Almarai,sans-serif;font-weight:800;font-size:17px">تابعنا</div>
-          <div style="margin-top:14px;display:grid;gap:10px;font-size:14.5px">
+          <div style="margin-top:{{ footListTop }};display:grid;gap:{{ footListGap }};font-size:15px">
             <a href="#" style="display:flex;align-items:center;gap:7px;color:rgba(255,253,253,.72)">لينكدإن<span style="font-size:11px;color:#00C278">&#8598;</span></a>
             <a href="#" style="display:flex;align-items:center;gap:7px;color:rgba(255,253,253,.72)">إكس<span style="font-size:11px;color:#00C278">&#8598;</span></a>
             <a href="#" style="display:flex;align-items:center;gap:7px;color:rgba(255,253,253,.72)">واتساب<span style="font-size:11px;color:#00C278">&#8598;</span></a>
           </div>
         </div>
       </div>
-      <div style="max-width:1560px;margin:52px auto 0;padding-top:26px;border-top:1px solid rgba(255,253,253,.14);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px">
+      <div style="max-width:1560px;margin:{{ footBarTop }} auto 0;padding-top:22px;border-top:1px solid rgba(255,253,253,.14);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px">
         <span style="font-size:13.5px;color:rgba(255,253,253,.5)">صُمّم وطُوّر بواسطة Lumens</span>
         <div style="display:flex;align-items:center;gap:4px;background:rgba(255,253,253,.07);border-radius:999px;padding:6px 8px">
-          <a href="#top" style="font-size:13px;color:rgba(255,253,253,.75);padding:5px 13px;border-radius:999px" style-hover="background:rgba(255,253,253,.12);color:#FFFDFD">الشروط</a>
-          <a href="#top" style="font-size:13px;color:rgba(255,253,253,.75);padding:5px 13px;border-radius:999px" style-hover="background:rgba(255,253,253,.12);color:#FFFDFD">الخصوصية</a>
           <span style="font-size:13px;color:rgba(255,253,253,.5);padding:5px 13px">&#169; ٢٠٢٦</span>
         </div>
       </div>
@@ -444,34 +460,77 @@
   </div>
 </section>
 
+<div dir="rtl" style="position:fixed;inset:0;z-index:200;display:{{ modalShow }};align-items:center;justify-content:center;padding:{{ modalOuterPad }};background:rgba(14,14,14,.62);backdrop-filter:blur(6px);overflow:auto;font-family:Almarai,sans-serif" onClick="{{ closeModal }}">
+  <div onClick="{{ stopClick }}" style="position:relative;width:100%;max-width:1040px;height:{{ modalH }};display:grid;grid-template-columns:{{ modalCols }};clip-path:{{ modalClip }};box-shadow:0 40px 90px rgba(0,0,0,.5)">
+    <div style="display:{{ modalRail }};background:#0E0E0E;padding:{{ modalRailPad }};flex-direction:column;justify-content:space-between;gap:clamp(24px,4vh,40px);height:100%;overflow:auto">
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;font-family:Almarai,sans-serif;font-weight:700;font-size:12.5px;color:#00C278"><span style="width:22px;height:1px;background:#00C278"></span>ابدأ من هنا</div>
+        <h2 style="margin:26px 0 0;font-family:Almarai,sans-serif;font-weight:800;font-size:clamp(26px,3.2vh,34px);line-height:1.36;color:#FFFDFD;text-wrap:balance">أرِنا معاملة واحدة، ونريك الفرق</h2>
+        <p style="margin:20px 0 0;font-size:15.5px;line-height:1.9;color:rgba(255,253,253,.72);text-wrap:pretty">اطلب عرضاً تجريبياً مباشراً، أو أرسل لنا سؤالك. ويصلك الرد خلال يوم عمل واحد.</p>
+      </div>
+      <div style="display:grid;gap:14px">
+        <sc-for list="{{ assurances }}" as="a" hint-placeholder-count="3">
+          <div style="display:grid;grid-template-columns:22px minmax(0,1fr);gap:12px;align-items:start">
+            <span style="width:22px;height:22px;border-radius:8px;background:rgba(0,194,120,.18);color:#00C278;display:flex;align-items:center;justify-content:center;font-size:12px;margin-top:2px">&#10003;</span>
+            <span style="font-size:14px;line-height:1.7;color:rgba(255,253,253,.8)">{{ a.text }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <div style="position:relative;background:#F5F2EF;padding:{{ modalPad }};height:100%;overflow:auto">
+      <button onClick="{{ closeModal }}" aria-label="إغلاق" style="position:sticky;float:left;top:0;margin:-6px 0 0 -6px;width:38px;height:38px;border:1px solid rgba(14,14,14,.14);background:#F5F2EF;color:#0E0E0E;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2" style-hover="background:#0E0E0E;color:#FFFDFD">&#215;</button>
+      <div style="display:inline-flex;padding:4px;background:rgba(14,14,14,.06);gap:4px">
+        <button onClick="{{ tabDemo }}" style="border:0;cursor:pointer;font-family:Almarai,sans-serif;padding:11px 24px;font-size:14px;font-weight:700;line-height:1.9;background:{{ tabDemoBg }};color:{{ tabDemoFg }};transition:background .2s ease">اطلب عرضاً تجريبياً</button>
+        <button onClick="{{ tabContact }}" style="border:0;cursor:pointer;font-family:Almarai,sans-serif;padding:11px 24px;font-size:14px;font-weight:700;line-height:1.9;background:{{ tabContactBg }};color:{{ tabContactFg }};transition:background .2s ease">تواصل معنا</button>
+      </div>
+      <div style="margin-top:26px;display:grid;grid-template-columns:{{ modalFields }};gap:18px 20px">
+        <label style="display:grid;gap:9px"><span style="font-size:13.5px;font-weight:700;line-height:1.9">الاسم الكامل <span style="color:#C6362E">*</span></span><input name="name" type="text" autocomplete="name" required="" placeholder="مثال: عبدالله الشمري" style="border:1px solid rgba(14,14,14,.16);background:#FFFDFD;padding:14px;font-family:Almarai,sans-serif;font-size:15px;line-height:1.9;height:auto;outline:none" style-focus="border-color:#00A868;box-shadow:0 0 0 3px rgba(0,168,104,.14)" /></label>
+        <label style="display:grid;gap:9px"><span style="font-size:13.5px;font-weight:700;line-height:1.9">اسم المكتب <span style="color:#C6362E">*</span></span><input name="office" type="text" autocomplete="organization" required="" placeholder="مثال: أفق للتخليص الجمركي" style="border:1px solid rgba(14,14,14,.16);background:#FFFDFD;padding:14px;font-family:Almarai,sans-serif;font-size:15px;line-height:1.9;height:auto;outline:none" style-focus="border-color:#00A868;box-shadow:0 0 0 3px rgba(0,168,104,.14)" /></label>
+        <label style="display:grid;gap:9px"><span style="font-size:13.5px;font-weight:700;line-height:1.9">البريد الإلكتروني <span style="color:#C6362E">*</span></span><input name="email" type="email" inputMode="email" autocomplete="email" required="" placeholder="name@company.com" style="border:1px solid rgba(14,14,14,.16);background:#FFFDFD;padding:14px;font-family:Almarai,sans-serif;font-size:15px;line-height:1.9;height:auto;outline:none;direction:ltr;text-align:right" style-focus="border-color:#00A868;box-shadow:0 0 0 3px rgba(0,168,104,.14)" /></label>
+        <label style="display:grid;gap:9px"><span style="font-size:13.5px;font-weight:700;line-height:1.9">رقم الجوال <span style="color:#C6362E">*</span></span><input name="phone" type="tel" inputMode="tel" autocomplete="tel" required="" placeholder="05X XXX XXXX" style="border:1px solid rgba(14,14,14,.16);background:#FFFDFD;padding:14px;font-family:Almarai,sans-serif;font-size:15px;line-height:1.9;height:auto;outline:none;direction:ltr;text-align:right" style-focus="border-color:#00A868;box-shadow:0 0 0 3px rgba(0,168,104,.14)" /></label>
+      </div>
+      <div style="margin-top:20px;display:{{ modalDemoGrid }};gap:9px">
+        <span style="font-size:13.5px;font-weight:700;line-height:1.9">عدد المعاملات شهرياً</span>
+        <div style="position:relative;display:grid">
+          <select name="volume" style="width:100%;border:1px solid rgba(14,14,14,.16);background:#FFFDFD;padding:14px 42px 14px 14px;font-family:Almarai,sans-serif;font-size:15px;line-height:1.9;height:auto;color:#0E0E0E;outline:none;appearance:none;cursor:pointer" style-focus="border-color:#00A868;box-shadow:0 0 0 3px rgba(0,168,104,.14)"><option>اختر النطاق</option><option>أقل من ٥٠</option><option>٥٠ &#8211; ٢٠٠</option><option>٢٠٠ &#8211; ١٠٠٠</option><option>أكثر من ١٠٠٠</option></select>
+          <span aria-hidden="true" style="position:absolute;top:50%;left:14px;transform:translateY(-50%);pointer-events:none;display:flex;align-items:center;justify-content:center;width:18px;height:18px;color:rgba(14,14,14,.5)"><svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        </div>
+      </div>
+      <div style="margin-top:20px;display:{{ modalDemoGrid }};gap:11px">
+        <span style="font-size:13.5px;font-weight:700;line-height:1.9">نوع الرخصة</span>
+        <div style="display:flex;flex-wrap:wrap;gap:10px">
+          <sc-for list="{{ licences }}" as="l" hint-placeholder-count="3">
+            <button onClick="{{ l.pick }}" style="cursor:pointer;font-family:Almarai,sans-serif;padding:11px 20px;font-size:14px;font-weight:700;line-height:1.9;border:1px solid {{ l.bd }};background:{{ l.bg }};color:{{ l.fg }};transition:all .18s ease">{{ l.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+      <label style="margin-top:20px;display:{{ modalContactGrid }};gap:9px"><span style="font-size:13.5px;font-weight:700;line-height:1.9">كيف يمكننا مساعدتك؟ <span style="color:#C6362E">*</span></span><textarea name="message" rows="4" placeholder="أخبرنا بما تحتاجه — سؤال، أو عرض سعر، أو ربط تقني." style="border:1px solid rgba(14,14,14,.16);background:#FFFDFD;padding:14px;font-family:Almarai,sans-serif;font-size:15px;line-height:1.9;height:auto;outline:none;resize:vertical" style-focus="border-color:#00A868;box-shadow:0 0 0 3px rgba(0,168,104,.14)"></textarea></label>
+      <label style="margin-top:22px;display:flex;align-items:flex-start;gap:12px;cursor:pointer"><input name="consent" type="checkbox" required="" style="width:18px;height:18px;margin:2px 0 0;accent-color:#00A868" /><span style="font-size:14.5px;line-height:1.6">أوافق على أن يتواصل معي فريق متقن. <span style="color:#C6362E">*</span></span></label>
+      <button onClick="{{ stopClick }}" style="margin-top:26px;width:100%;border:0;cursor:pointer;background:#00C278;color:#0E0E0E;font-family:Almarai,sans-serif;font-size:16px;font-weight:700;line-height:1.9;padding:16px 20px;clip-path:polygon(16px 0,100% 0,100% calc(100% - 16px),calc(100% - 16px) 100%,0 100%,0 16px);transition:background .2s ease,color .2s ease" style-hover="background:#0E0E0E;color:#FFFDFD">{{ modalSubmit }}</button>
+      <p style="margin:14px 0 0;text-align:center;font-size:13px;color:rgba(14,14,14,.55)">لن نشارك بياناتك ولن نرسل رسائل تسويقية متكررة.</p>
+    </div>
+  </div>
+</div>
+
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1560},&quot;tickSeconds&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1.4,&quot;min&quot;:0.6,&quot;max&quot;:4,&quot;step&quot;:0.1,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Behaviour&quot;},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#00C278&quot;,&quot;options&quot;:[&quot;#00C278&quot;,&quot;#00A868&quot;,&quot;#0B7F52&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Brand&quot;}}">
 class Component extends DCLogic {
-  state = { faq: -1, stage: 1, narrow: false, stack: false, scrolled: false, filter: "الكل", tick: 4, slide: 0, sector: -1 };
-
-  heroSlides() {
-    return [
-      { kicker: "مرتبط مباشرة بمنصة فسح",
-        title: "كل ما تحتاجه لتخلّص وتتابع وتُحصّل",
-        body: "خلف كل معاملة جمركية عمل كثير. متقن يجمع البيانات والمستندات والرسوم والناقلين والفواتير في مكان واحد، والخدمات القادمة تصل إلى الحساب نفسه." },
-      { kicker: "البنية التحتية للمخلّصين المرخّصين",
-        title: "ليس نظاماً تشتريه، بل الأرض التي يقف عليها مكتبك",
-        body: "التخليص والمدفوعات والناقلون والخدمات التي تليها، على حساب واحد وسجل واحد — فإضافة أي قدرة جديدة تفعيل، لا انتقال جديد إلى نظام آخر." }
-    ];
-  }
+  state = { menu: false, slide: 0, modal: null, mLic: null, faq: -1, narrow: false, stack: false, tight: false, scrolled: false, tick: 4, sector: -1 };
 
   componentDidMount() {
     const self = this;
     this.onResize = function () {
       const w = window.innerWidth;
-      const narrow = w < 1180, stack = w < 820;
-      if (narrow !== self.state.narrow || stack !== self.state.stack) self.setState({ narrow: narrow, stack: stack });
+      const narrow = w < 1180, stack = w < 820, tight = w < 520;
+      if (narrow !== self.state.narrow || stack !== self.state.stack || tight !== self.state.tight) self.setState({ narrow: narrow, stack: stack, tight: tight });
     };
     this.onScroll = function () {
       const past = (window.scrollY || document.documentElement.scrollTop || 0) > 90;
       if (past !== self.state.scrolled) self.setState({ scrolled: past });
     };
+    this.onKey = function (e) { if (e.key !== "Escape") return; if (self.state.modal) self.closeModal(); else if (self.state.menu) self.closeMenu(); };
+    window.addEventListener("keydown", this.onKey);
     window.addEventListener("resize", this.onResize, { passive: true });
     window.addEventListener("scroll", this.onScroll, { passive: true });
     this.onResize();
@@ -479,47 +538,53 @@ class Component extends DCLogic {
     this.timer = setInterval(function () {
       self.setState(function (s) { return { tick: (s.tick + 1) % 7 }; });
     }, 1400);
-    this.slideTimer = setInterval(function () {
-      self.setState(function (s) { return { slide: (s.slide + 1) % 2 }; });
-    }, 7000);
   }
   componentWillUnmount() {
     clearInterval(this.timer);
     clearInterval(this.slideTimer);
+    if (this.onKey) window.removeEventListener("keydown", this.onKey);
     if (this.onResize) window.removeEventListener("resize", this.onResize);
     if (this.onScroll) window.removeEventListener("scroll", this.onScroll);
   }
 
-  directoryData() {
-    return [
-      { category: "المدفوعات", name: "محفظة المكتب", state: "متاح", copy: "رصيد واحد للرسوم والأتعاب والمصروفات في كل الفروع." },
-      { category: "المدفوعات", name: "تحصيل من العملاء", state: "متاح", copy: "يسدّد العميل بالبطاقة أو الحوالة، ويُطابَق المبلغ مع المعاملة نفسها." },
-      { category: "رأس المال", name: "تمويل الرسوم والضريبة", state: "قيد التطوير", copy: "متقن يسدّد الجمارك عند الفسح، ويسوّي مكتبك على شروط متفق عليها." },
-      { category: "رأس المال", name: "تسييل الفواتير", state: "مخطَّط", copy: "سحب مقابل فواتير تخليص صادرة ولم تُحصَّل بعد." },
-      { category: "الناقلون", name: "طلب الأسعار", state: "قيد التطوير", copy: "طلب نقل واحد، وكل العروض تعود في شاشة واحدة." },
-      { category: "الناقلون", name: "الأسعار المتعاقد عليها", state: "قيد التطوير", copy: "الاتفاقيات محفوظة في متقن وتُطبَّق على الحجوزات تلقائياً." },
-      { category: "الامتثال", name: "شهادات المطابقة", state: "مخطَّط", copy: "تُطلب من الملف وتُتابَع إلى جانب البيان الجمركي." },
-      { category: "الامتثال", name: "متابعة انتهاء الرخص", state: "متاح", copy: "رخصة المخلّص والسجل التجاري وبطاقات الموظفين تحت المراقبة قبل انتهائها." },
-      { category: "التأمين", name: "تأمين الشحنات", state: "مخطَّط", copy: "عرض وإصدار عند فتح الملف، والقسط يُحمَّل على فاتورة العميل." },
-      { category: "الذكاء", name: "مساعد البند الجمركي", state: "قيد التطوير", copy: "تصنيف مقترح من وصف الفاتورة، مع نسبة الرسوم." },
-      { category: "الذكاء", name: "تقدير التكلفة النهائية", state: "متاح", copy: "سعّر للعميل التكلفة الكاملة قبل أن يُفتح الملف." },
-      { category: "التخزين", name: "المستودعات الجمركية", state: "مخطَّط", copy: "احجز التخزين عندما لا يكون المستلم مستعداً للاستلام." }
-    ];
+  heroSlides() {
+    return this.mo("heroSlides", [
+      { title: "كل ما تحتاجه للتخليص والمتابعة والتحصيل",
+        body: "أدِر أعمال التخليص من مكان واحد، بدءاً من إنشاء الملف وإعداد البيان وإرساله إلى منصة فسح، وحتى متابعة حالة الشحنة وتسجيل رسومها والتحصيل." }
+    ]);
+  }
+
+  openMenu() {
+    this.setState({ menu: true });
+    if (typeof document !== "undefined") document.body.style.overflow = "hidden";
+  }
+  closeMenu() {
+    this.setState({ menu: false });
+    if (typeof document !== "undefined") document.body.style.overflow = "";
+  }
+
+  openModal(tab) {
+    this.setState({ modal: tab });
+    if (typeof document !== "undefined") document.body.style.overflow = "hidden";
+  }
+  closeModal() {
+    this.setState({ modal: null, menu: false });
+    if (typeof document !== "undefined") document.body.style.overflow = "";
   }
 
   faqData() {
-    return [
-      { q: "ما هو متقن؟", a: "منصة سحابية لإدارة أعمال التخليص الجمركي، مبنية لمكاتب التخليص المرخّصة والمستوردين وشركات الشحن في المملكة. إعداد البيانات وأرشفة المستندات وتتبّع الشحنات والفواتير وإدارة العملاء في حساب واحد." },
+    return this.mo("faqs", [
+      { q: "ما هو متقن؟", a: "نظام سحابي لإدارة أعمال التخليص الجمركي، مبني لمكاتب التخليص المرخّصة في المملكة. إعداد البيانات الجمركية وأرشفة المستندات ومتابعة الشحنات وتسجيل رسومها وإدارة العملاء في حساب واحد." },
       { q: "هل متقن مرتبط مباشرة بمنصة فسح؟", a: "نعم. تُرسل بيانات المعاملة إلى فسح دون إعادة إدخال يدوي، وتعود حالة التخليص تلقائياً إلى ملف المعاملة حيث يراها فريقك وعميلك في اللحظة نفسها. كما تُراجع الحقول قبل الإرسال، ما يقلّل الرفض." },
-      { q: "هل يدعم رخصتي التخليص؟", a: "نعم، بمسارين منفصلين. رخصة الطرود السريعة تحصل على استيراد المنافيست بالجملة والبيانات الدفعية والفوترة المجمّعة. ورخصة الصادر والوارد تحصل على المسار من بوليصة الشحن حتى الفسح مع تتبّع الأرضيات، والصادر حتى شهادة المنشأ والمغادرة." },
+      { q: "هل يدعم رخصتي التخليص؟", a: "نعم، بمسارين منفصلين. رخصة النقل السريع تحصل على استيراد المنافيست بالجملة والبيانات الدفعية ورسوم مجمّعة لكل شركة أو متجر. ورخصة الصادر والوارد تحصل على المسار من بوليصة الشحن حتى الفسح مع تتبّع الأرضيات، والصادر حتى شهادة المنشأ والمغادرة." },
       { q: "كم يستغرق التشغيل؟", a: "يعمل الحساب خلال يوم عمل واحد. وترحيل بيانات العملاء والمعاملات السابقة يستغرق عادة من ثلاثة إلى خمسة أيام عمل بحسب حجم الأرشيف، ويقوم به فريقنا معك." },
       { q: "هل يناسب متقن المكتب الصغير؟", a: "نعم. يبدأ بخطة بحجم مكتب فيه مخلّص واحد وموظف متابعة واحد، ويتوسّع إلى عشرات المستخدمين وعدة فروع دون تغيير النظام أو ترحيل جديد." },
       { q: "أين تُحفظ بياناتي؟", a: "داخل المملكة، مع نسخ احتياطي يومي، وتشفير أثناء النقل وفي التخزين، وصلاحيات محددة لكل مستخدم ودور." },
-      { q: "هل تصدر فواتير ضريبية مطابقة للفاتورة الإلكترونية؟", a: "نعم. الفواتير تلبّي متطلبات الفاتورة الإلكترونية في المملكة، وتفصل أتعابك عن المصروفات المستردة، ومعها كشف حساب تفصيلي لكل عميل." },
-      { q: "هل يستطيع عميلي متابعة شحنته؟", a: "نعم. لكل عميل بوابة تُظهر حالة معاملاته ومستنداته وفواتيره ورصيده. وهذه أكثر ميزة تقول المكاتب إنها خفّضت مكالمات المتابعة اليومية." },
+      { q: "كيف يتعامل متقن مع الفاتورة الإلكترونية؟", a: "تضاف رسوم كل شحنة ومصروفاتها داخل متقن، ثم ترسل عبر الربط إلى نظامك المحاسبي لتصدر منه الفاتورة الضريبية المتوافقة مع متطلبات الفاتورة الإلكترونية. متقن يجهز لك بيانات كل شحنة كاملة، ونظامك المحاسبي يصدر الفاتورة." },
+      { q: "هل يستطيع عميلي متابعة شحنته؟", a: "نعم. لكل عميل بوابة تُظهر حالة معاملاته ومستنداته ورسوم شحناته. وهذه أكثر ميزة تقول المكاتب إنها خفّضت مكالمات المتابعة اليومية." },
       { q: "هل يعمل من الجوال في الميناء؟", a: "نعم، يعمل متقن في المتصفح على أي جهاز. يرفع المندوب صور المستندات ويحدّث الحالة من جواله، فتصل إلى المكتب والعميل في الوقت نفسه." },
-      { q: "ماذا يحدث لبياناتي إذا أوقفت الاشتراك؟", a: "بياناتك تبقى ملكك. يمكنك تصدير الأرشيف والمعاملات والفواتير كاملة بصيغ مفتوحة في أي وقت، دون مقابل إضافي." }
-    ];
+      { q: "ماذا يحدث لبياناتي إذا أوقفت الاشتراك؟", a: "بياناتك تبقى ملكك. يمكنك تصدير الأرشيف والمعاملات وبيانات الرسوم كاملة بصيغ مفتوحة في أي وقت، دون مقابل إضافي." }
+    ]);
   }
 
   faqCols() {
@@ -528,21 +593,38 @@ class Component extends DCLogic {
       const on = i === self.state.faq;
       return { q: f.q, a: f.a,
         sign: on ? "\u2212" : "+",
-        h: on ? "320px" : "0px", o: on ? 1 : 0, pb: on ? "24px" : "0px",
+        h: on ? "340px" : "0px", o: on ? 1 : 0, pb: on ? "24px" : "0px",
         toggle: function () { self.setState({ faq: self.state.faq === i ? -1 : i }); } };
     });
     const half = Math.ceil(all.length / 2);
     return { a: all.slice(0, half), b: all.slice(half) };
   }
+
+  mo(key, data) {
+    const all = (typeof window !== "undefined" && window.MUTQIN_OVERRIDES) || null;
+    if (!all || !all[key]) return data;
+    const ov = all[key];
+    if (Array.isArray(data)) {
+      return data.map(function (item, i) {
+        const patch = ov[i] || ov[String(i)];
+        return (patch && typeof patch === "object") ? Object.assign({}, item, patch) : item;
+      });
+    }
+    return Object.assign({}, data, ov);
+  }
+
   renderVals() {
     const self = this;
-    const stack = this.state.stack, narrow = this.state.narrow, sc = this.state.scrolled;
-    const st = function (s) {
-      if (s === "متاح") return { fg: "#0B7F52", bg: "rgba(0,194,120,.15)" };
-      if (s === "قيد التطوير") return { fg: "rgba(14,14,14,.7)", bg: "rgba(14,14,14,.07)" };
-      return { fg: "rgba(14,14,14,.55)", bg: "rgba(14,14,14,.04)" };
-    };
-    const cats = ["الكل", "المدفوعات", "رأس المال", "الناقلون", "الامتثال", "التأمين", "الذكاء", "التخزين"];
+    const stack = this.state.stack, narrow = this.state.narrow, tight = this.state.tight, sc = this.state.scrolled;
+    const modal = this.state.modal;
+    const licences = ["نقل سريع", "الصادر والوارد", "غير ذلك"].map(function (label) {
+      const on = self.state.mLic === label;
+      return { label: label,
+        bg: on ? "#0E0E0E" : "#FFFDFD",
+        fg: on ? "#FFFDFD" : "#0E0E0E",
+        bd: on ? "#0E0E0E" : "rgba(14,14,14,.16)",
+        pick: function (e) { e.preventDefault(); self.setState({ mLic: on ? null : label }); } };
+    });
     const traceRows = [
       { time: "٠٩:٤٠", event: "أُرسل البيان الجمركي" },
       { time: "٠٩:٤١", event: "اجتاز التحقق، ١٤ من ١٤" },
@@ -562,35 +644,106 @@ class Component extends DCLogic {
       navToggle: sc ? "rgba(14,14,14,.07)" : "rgba(255,253,253,.18)",
       logoLight: sc ? 0 : 1,
       logoDark: sc ? 1 : 0,
-      navGap: narrow ? "18px" : "clamp(18px,2.1vw,32px)",
-      navOrder: narrow ? 3 : 0,
-      navWidth: narrow ? "100%" : "auto",
+      navGap: tight ? "14px" : (narrow ? "18px" : "clamp(18px,2.1vw,32px)"),
+      navSize: tight ? "13.5px" : "15px",
+      navOrder: 0,
+      navWidth: "auto",
       navJustify: narrow ? "flex-start" : "center",
-      navPad: narrow ? "0 0 16px" : "0",
-      navRowGap: narrow ? "0 22px" : "30px",
+      navPad: "0",
+      navRowGap: "30px",
 
-      padX: stack ? "20px" : "clamp(24px,3.4vw,52px)",
-      padY: stack ? "72px" : "clamp(88px,9vw,140px)",
-      stripPad: stack ? "56px 20px" : "clamp(64px,7vw,96px) clamp(24px,3.4vw,52px)",
-      bandPad: stack ? "44px 24px" : "clamp(52px,5.6vw,86px)",
-      splitPad: stack ? "26px" : "clamp(28px,3vw,42px)",
-      ctaPad: stack ? "60px 26px" : "clamp(76px,8vw,124px) clamp(30px,4vw,64px)",
-      glassPad: stack ? "24px" : "clamp(26px,2.8vw,34px)",
+      heroTitle: this.heroSlides()[this.state.slide].title,
+      heroBody: this.heroSlides()[this.state.slide].body,
+      heroTitleH: tight ? "auto" : "2.3em",
+      heroBodyH: tight ? "auto" : "5.4em",
+      heroTitleSize: tight ? "28px" : "clamp(30px,3.8vw,56px)",
+      heroBodySize: tight ? "16px" : "18px",
+      heroBodyTop: tight ? "22px" : "30px",
+      heroPhoto: tight ? "photos/hero-lighthouse-mobile.jpg" : "photos/hero-jeddah-lighthouse.jpg",
+      heroPhotoPos: tight ? "26% 42%" : "50% 50%",
+      heroH: tight ? "auto" : "100svh",
+      heroMinH: tight ? "88svh" : "600px",
+      heroPos: tight ? "relative" : "absolute",
+      heroPad: tight ? "140px 18px 92px" : "0 clamp(20px,4vw,40px)",
+      heroBtnDir: tight ? "column" : "row",
+      heroBtnAlign: tight ? "stretch" : "center",
+      heroBtnGap: tight ? "12px" : "16px",
+      heroBtnTop: tight ? "32px" : "40px",
+      heroBtnW: tight ? "100%" : "auto",
+      padX: tight ? "16px" : (stack ? "20px" : "clamp(24px,3.4vw,52px)"),
+      padY: tight ? "56px" : (stack ? "72px" : "clamp(88px,9vw,140px)"),
+      stripPad: tight ? "44px 16px" : (stack ? "56px 20px" : "clamp(64px,7vw,96px) clamp(24px,3.4vw,52px)"),
+      bandPad: tight ? "32px 18px" : (stack ? "44px 24px" : "clamp(52px,5.6vw,86px)"),
+      splitPad: tight ? "16px" : (stack ? "26px" : "clamp(28px,3vw,42px)"),
+      ctaPad: tight ? "48px 18px" : (stack ? "60px 26px" : "clamp(76px,8vw,124px) clamp(30px,4vw,64px)"),
+      glassPad: tight ? "16px" : (stack ? "24px" : "clamp(26px,2.8vw,34px)"),
       radius: stack ? "20px" : "28px",
       innerRadius: stack ? "16px" : "18px",
       h2: "clamp(26px,3.2vw,46px)",
-      aboutSize: "clamp(26px,3vw,44px)",
-      pillarGap: stack ? "44px" : "clamp(52px,5.5vw,78px)",
-      pillars: [
-        { n: "٠١", head: "كل شيء على سجل واحد", body: "العميل والبيان والمستندات والرسوم والناقل والفاتورة مجتمعة من الفتح إلى الأرشفة، فلا شيء يُطابَق يدوياً لاحقاً." },
-        { n: "٠٢", head: "مرتبط بما يهم", body: "فسح للتخليص، والقنوات الوطنية للدفع، والناقلون للنقل. مكتبك يعمل في مكان واحد بينما تتحدث الأنظمة فيما بينها." },
-        { n: "٠٣", head: "مساحة للنمو", body: "الخدمات الجديدة تصل داخل الحساب الذي تستخدمه أصلاً. تفعيل، لا ترحيل جديد وحساب جديد." }
-      ],
-      impact: [
-        { figure: "٧٠٪", copy: "من وقت إعداد البيان الجمركي يُوفَّر عند تكرار العميل نفسه" },
-        { figure: "٣×", copy: "عدد المعاملات التي ينجزها الموظف الواحد يومياً" },
-        { figure: "٩٩٪", copy: "دقة في إدخال البيانات بفضل الحقول المحفوظة والتحقق الآلي" }
-      ].map(function (x, i) {
+      aboutSize: "clamp(24px,2.7vw,40px)",
+      pillarGap: tight ? "30px" : (stack ? "44px" : "clamp(52px,5.5vw,78px)"),
+
+      modalShow: modal ? "flex" : "none",
+      modalPad: tight ? "26px 18px 30px" : "40px 44px 40px",
+      modalRailPad: tight ? "26px 18px" : "clamp(34px,4vh,52px) 44px",
+      modalOuterPad: tight ? "0" : "clamp(16px,4vw,48px)",
+      modalH: tight ? "100%" : "min(780px,90vh)",
+      modalClip: tight ? "none" : "polygon(30px 0,100% 0,100% calc(100% - 30px),calc(100% - 30px) 100%,0 100%,0 30px)",
+      modalCols: stack ? "1fr" : "minmax(280px,.78fr) 1.22fr",
+      modalRail: stack ? "none" : "flex",
+      modalFields: stack ? "1fr" : "1fr 1fr",
+      modalDemoGrid: modal === "demo" ? "grid" : "none",
+      modalContactGrid: modal === "contact" ? "grid" : "none",
+      modalSubmit: modal === "contact" ? "أرسل الرسالة" : "أرسل الطلب",
+      tabDemoBg: modal === "demo" ? "#FFFDFD" : "transparent",
+      tabDemoFg: modal === "demo" ? "#0E0E0E" : "rgba(14,14,14,.6)",
+      tabContactBg: modal === "contact" ? "#FFFDFD" : "transparent",
+      tabContactFg: modal === "contact" ? "#0E0E0E" : "rgba(14,14,14,.6)",
+      tabDemo: function () { self.setState({ modal: "demo" }); },
+      tabContact: function () { self.setState({ modal: "contact" }); },
+      openDemo: function (e) { e.preventDefault(); self.openModal("demo"); },
+      openDemoFromMenu: function (e) { e.preventDefault(); self.setState({ menu: false }); self.openModal("demo"); },
+      openMenu: function (e) { if (e) e.preventDefault(); self.openMenu(); },
+      closeMenu: function (e) { if (e) e.preventDefault(); self.closeMenu(); },
+      menuGo: function (e) {
+        e.preventDefault();
+        const href = e.currentTarget.getAttribute("href");
+        self.closeMenu();
+        setTimeout(function () {
+          const el = href && document.querySelector(href);
+          if (!el) return;
+          const top = el.getBoundingClientRect().top + window.scrollY - 78;
+          window.scrollTo({ top: top < 0 ? 0 : top, behavior: "smooth" });
+        }, 30);
+      },
+      menuShow: self.state.menu ? "block" : "none",
+      drawerW: "100%",
+      drawerInnerW: tight ? "100%" : "620px",
+      drawerFootTop: tight ? "auto" : "48px",
+      navDisplay: narrow ? "none" : "flex",
+      burgerShow: narrow ? "flex" : "none",
+      deskOnly: narrow ? "none" : "inline-block",
+      openContact: function (e) { e.preventDefault(); self.openModal("contact"); },
+      closeModal: function (e) { if (e) e.preventDefault(); self.closeModal(); },
+      stopClick: function (e) { e.stopPropagation(); },
+      licences: licences,
+      assurances: this.mo("assurances", [
+        { text: "عرض تجريبي مباشر مدته ٢٥ دقيقة على معاملة من مكتبك أنت" },
+        { text: "يصلك الرد خلال يوم عمل واحد" },
+        { text: "دون التزام، ودون بطاقة" }
+      ]),
+
+      pillars: this.mo("pillars", [
+        { head: "كل المعلومات في سجل واحد", body: "اجمع بيانات العميل والبيان الجمركي والفاتورة والمستندات المرتبطة بها في سجل واحد، لتقليل تكرار إدخال البيانات وتسهيل متابعة كل معاملة." },
+        { head: "تكامل مباشر مع عمليات التخليص", body: "أنشئ البيان وأرسله إلى منصة فسح من خلال النظام، وتابع حالته وتحديثاته مباشرة ضمن ملف المعاملة، مع إمكانية إطلاع فريقك وعميلك على آخر المستجدات." },
+        { head: "نظام ينمو مع أعمالك", body: "فعّل المزايا والخدمات التي تحتاجها عند الحاجة، واربط خدمات إضافية ضمن النظام نفسه، دون الحاجة إلى الانتقال إلى منصة أخرى أو تغيير آلية عملك." }
+      ]),
+
+      impact: this.mo("impact", [
+        { figure: "٧٠٪", label: "وقت أقل في إعداد البيانات", copy: "الاستفادة من بيانات العملاء والمعاملات المحفوظة تقلل الحاجة إلى إعادة إدخال المعلومات في كل مرة." },
+        { figure: "٣×", label: "قدرة أكبر على إنجاز المعاملات", copy: "توحيد خطوات العمل وتقليل الإجراءات اليدوية يساعد الموظف على إدارة عدد أكبر من المعاملات بكفاءة." },
+        { figure: "٩٩٪", label: "دقة في البيانات", copy: "الحقول المحفوظة والتحقق من البيانات قبل الإرسال يساعدان على تقليل أخطاء الإدخال ونقص المعلومات." }
+      ]).map(function (x, i) {
         return Object.assign({}, x, {
           pad: stack ? "24px 0" : (narrow ? (i % 2 === 0 ? "28px 0 30px 30px" : "28px 30px 30px 0") : (i === 0 ? "30px 0 32px 34px" : (i === 2 ? "30px 34px 32px 0" : "30px 34px 32px 34px"))),
           divider: stack ? "0" : (narrow
@@ -599,57 +752,52 @@ class Component extends DCLogic {
           topRule: (!stack && narrow && i >= 2) ? "1px solid rgba(14,14,14,.14)" : "0"
         });
       }),
+
       col2: stack ? "minmax(0,1fr)" : "minmax(0,1fr) minmax(0,1fr)",
       col3: stack ? "minmax(0,1fr)" : (narrow ? "repeat(2,minmax(0,1fr))" : "repeat(3,minmax(0,1fr))"),
-      col4: stack ? "minmax(0,1fr)" : (narrow ? "repeat(2,minmax(0,1fr))" : "repeat(4,minmax(0,1fr))"),
-      colSector: stack ? "minmax(0,1fr)" : (narrow ? "repeat(2,minmax(0,1fr))" : "repeat(4,minmax(0,1fr))"),
+      colSector: stack ? "minmax(0,1fr)" : (narrow ? "repeat(2,minmax(0,1fr))" : "repeat(3,minmax(0,1fr))"),
       sectorTitle: stack ? "26px" : "clamp(22px,2.1vw,30px)",
-      footCols: stack ? "minmax(0,1fr)" : (narrow ? "repeat(2,minmax(0,1fr))" : "minmax(0,1.3fr) repeat(3,minmax(0,1fr))"),
-      footEnd: "start",
-      featPhoto: stack ? "300px" : "clamp(520px,52vw,660px)",
+      footCols: stack ? "repeat(2,minmax(0,1fr))" : "minmax(0,1.3fr) repeat(3,minmax(0,1fr))",
+      footEnd: "stretch",
+      footGap: stack ? "40px 24px" : (narrow ? "36px" : "44px"),
+      footBarTop: stack ? "40px" : "48px",
+      footListTop: stack ? "18px" : "14px",
+      footListGap: stack ? "14px" : "10px",
+      footGridTop: stack ? "44px" : "56px",
+      footContactSpan: "auto",
+      footContactOrder: stack ? 3 : 0,
+      footWordmark: stack ? "30px" : "36px",
+      footTagSize: stack ? "15.5px" : "17px",
+      footTagTop: stack ? "13px" : "16px",
+      featPhoto: tight ? "230px" : (stack ? "300px" : "clamp(520px,52vw,660px)"),
       cardShift: stack ? "0" : "-70px",
-      features: [
-        { num: "٠١", name: "إدارة البيانات الجمركية", copy: "يُبنى البيان من بيانات محفوظة تغطي البنود الجمركية والموردين والأوزان والتعبئة. إدخال يدوي أقل وأخطاء أقل." },
-        { num: "٠٢", name: "تتبّع الشحنات مباشرة", copy: "حالة كل شحنة من الميناء حتى التسليم، يراها فريقك وعميلك في الوقت نفسه." },
-        { num: "٠٣", name: "أرشفة المستندات إلكترونياً", copy: "بوليصة الشحن والفاتورة وشهادة المنشأ وأمر التسليم، كل مستند مرتبط بمعاملته وقابل للبحث." },
-        { num: "٠٤", name: "الفواتير وكشوف الحساب", copy: "فاتورة ضريبية لكل معاملة تفصل أتعابك عن المصروفات المستردة، وكشف حساب جاهز لأي عميل." },
-        { num: "٠٥", name: "العملاء وبوابتهم", copy: "ملف كامل لكل عميل يضم المعاملات والمستندات والأرصدة، وبوابة يتابع منها بنفسه." },
-        { num: "٠٦", name: "التقارير ولوحات المؤشرات", copy: "متوسط زمن التخليص، وربحية كل عميل، وأي المعاملات متعطلة — بأرقام تُبنى عليها القرارات." }
-      ],
-      emblemH: stack ? "40px" : "54px",
-      footPadSeam: stack ? "28px 20px 34px" : "38px clamp(24px,3.4vw,52px) 40px",
+
+      features: this.mo("features", [
+        { num: "٠١", name: "إدارة البيانات الجمركية", copy: "أنشئ بيانات معاملاتك اعتماداً على معلومات محفوظة مسبقاً، مثل البنود الجمركية والموردين والأوزان والعبوات، لتقليل الإدخال اليدوي والحد من الأخطاء." },
+        { num: "٠٢", name: "متابعة الشحنات", copy: "تابع حالة كل شحنة وتحديثاتها من بداية المعاملة وحتى الفسح والتسليم، مع إتاحة آخر المستجدات لفريقك وعميلك من خلال النظام." },
+        { num: "٠٣", name: "أرشفة المستندات إلكترونياً", copy: "احفظ جميع مستندات المعاملة في ملف واحد، مع إمكانية الوصول إليها والبحث عنها بسهولة بالاسم أو الرقم أو التاريخ." },
+        { num: "٠٤", name: "رسوم الشحنة والربط المحاسبي", copy: "أضف رسوم كل شحنة ومصروفاتها على المعاملة نفسها، ليظهر تحتها الدخل والتكاليف، وترسل هذه البيانات عبر الربط إلى نظامك المحاسبي." },
+        { num: "٠٥", name: "إدارة العملاء وبوابة العميل", copy: "احتفظ بملف متكامل لكل عميل يشمل معاملاته ومستنداته ورسوم شحناته، مع بوابة تتيح له متابعة أعماله ومستنداته مباشرة." }
+      ]),
+
+      emblemH: tight ? "34px" : (stack ? "40px" : "54px"),
+      footPadSeam: tight ? "34px 18px 40px" : (stack ? "38px 24px 44px" : "38px clamp(24px,3.4vw,52px) 40px"),
       aboutW: stack ? "100%" : (narrow ? "940px" : "1280px"),
-      padYTight: stack ? "56px" : "clamp(56px,6vw,88px)",
-      gapMid: stack ? "40px" : "clamp(44px,5vw,88px)",
-      sectorH: stack ? "380px" : "clamp(420px,44vw,540px)",
+      padYTight: tight ? "44px" : (stack ? "56px" : "clamp(56px,6vw,88px)"),
+      gapMid: tight ? "30px" : (stack ? "40px" : "clamp(44px,5vw,88px)"),
+      sectorH: tight ? "330px" : (stack ? "380px" : "clamp(420px,44vw,540px)"),
       bandH: stack ? "auto" : "660px",
       splitH: stack ? "auto" : "560px",
-      carrierImgH: stack ? "220px" : "280px",
-      quoteGap: stack ? "12px" : "clamp(12px,1.8vw,24px)",
       flipOrder: stack ? 2 : 0,
 
-      heroKicker: this.heroSlides()[this.state.slide].kicker,
-      heroTitle: this.heroSlides()[this.state.slide].title,
-      heroBody: this.heroSlides()[this.state.slide].body,
-      slideDots: this.heroSlides().map(function (_, i) {
-        const on = i === self.state.slide;
-        return { label: "شريحة " + (i + 1),
-          scale: on ? 1 : 0.25,
-          op: on ? 1 : 0,
-          halo: on ? "dotHalo 2.4s ease-out infinite" : "none",
-          select: function () { clearInterval(self.slideTimer); self.setState({ slide: i }); } };
-      }),
-
-      sectors: [
-        { code: "٠١ / الطرود السريعة", name: "الطرود السريعة", photo: "photos/licence-courier.jpg", alt: "مستودع جمركي بخطوط ناقلة",
-          copy: "آلاف الطرود في الليلة: بيانات الطرود تُستورد دفعة واحدة، والبيانات الجمركية تُعالج على هيئة حِزم، وفاتورة واحدة مجمّعة لكل شركة أو متجر." },
+      sectors: this.mo("sectors", [
+        { code: "٠١ / نقل سريع", name: "نقل سريع", photo: "photos/licence-courier.jpg", alt: "مستودع جمركي بخطوط ناقلة",
+          copy: "آلاف الطرود في الليلة: بيانات الطرود تُستورد دفعة واحدة، والبيانات الجمركية تُعالج على هيئة حِزم، ورسوم مجمّعة لكل شركة أو متجر." },
         { code: "٠٢ / الوارد", name: "الوارد", photo: "photos/import-terminal.jpg", alt: "محطة حاويات عند الغروب",
           copy: "من الوصول إلى التسليم: ملف المعاملة والبيان والمستندات والرسوم والأرضيات، مُتابَعة في مكان واحد حتى يُقفل الملف." },
         { code: "٠٣ / الصادر", name: "الصادر", photo: "photos/export-clearance.jpg", alt: "شحنة صادرة أثناء التحميل",
-          copy: "من أمر التصدير إلى المغادرة: البيان وشهادة المنشأ والمستندات المساندة، محفوظة مع الشحنة التي يسأل عنها عميلك." },
-        { code: "٠٤ / العبور", name: "العبور", photo: "photos/transit-border.jpg", alt: "شاحنة حاويات على الطريق",
-          copy: "ملفات العبور وإعادة التصدير في السجل نفسه، مع متابعة الحركة والمستندات والضمانات حتى الإقفال." }
-      ].map(function (s, i) {
+          copy: "من أمر التصدير إلى المغادرة: البيان وشهادة المنشأ والمستندات المساندة، محفوظة مع الشحنة التي يسأل عنها عميلك." }
+      ]).map(function (s, i) {
         const on = self.state.sector === i;
         return Object.assign({}, s, {
           veil: on ? "linear-gradient(180deg,rgba(0,194,120,.3) 0%,rgba(14,14,14,.86) 100%)"
@@ -661,12 +809,12 @@ class Component extends DCLogic {
         });
       }),
 
-      clearancePoints: [
-        { text: "البيانات تُرسل دون إعادة إدخال" },
-        { text: "الحالة والرسوم تُكتب في الملف تلقائياً" },
-        { text: "الحقول تُراجَع قبل الإرسال" },
-        { text: "كل تبادل مؤرشف بوقته" }
-      ],
+      clearancePoints: this.mo("clearancePoints", [
+        { text: "ترسل بيانات البيان إلى منصة فسح مباشرة من النظام، دون الحاجة إلى إعادة إدخالها أو نقلها يدوياً بين الشاشات." },
+        { text: "تحدث حالة البيان تلقائياً داخل ملف المعاملة، لتكون آخر المستجدات متاحة لفريقك وعميلك." },
+        { text: "يتحقق النظام من اكتمال البيانات المطلوبة قبل الإرسال، مما يساعد على تقليل الأخطاء وحالات الرفض الناتجة عن نقص البيانات." },
+        { text: "تحفظ عمليات الإرسال والتحديثات والردود مع تاريخها ووقتها، لتسهيل الرجوع إليها ومراجعتها عند الحاجة." }
+      ]),
       trace: traceRows.map(function (t, i) {
         const done = i < self.state.tick, active = i === self.state.tick;
         return { time: t.time, event: t.event,
@@ -675,70 +823,42 @@ class Component extends DCLogic {
           anim: active ? "blip 1.1s ease-in-out infinite" : "none" };
       }),
 
-      paymentPoints: [
-        { text: "سدّد الرسوم الجمركية من الملف" },
-        { text: "حصّل من عملائك بالبطاقة أو الحوالة" },
-        { text: "خلّص الآن وسوِّ على شروط متفق عليها" },
-        { text: "مصروفات الميدان مسجّلة على الشحنة" }
-      ],
-      paymentRows: [
-        { label: "رسوم جمركية", ref: "متقن-٢٠٢٦-٠٤٨٧١", amount: "١٨,٢٤٠ ر.س", state: "مسدَّدة", stateColor: "#0B7F52" },
-        { label: "رسوم المعاينة", ref: "متقن-٢٠٢٦-٠٤٨٧١", amount: "٦٤٠ ر.س", state: "مسدَّدة", stateColor: "#0B7F52" },
-        { label: "فاتورة التخليص", ref: "فاتورة-٢٦-٣٣٩١", amount: "٢٦,٢٤٠ ر.س", state: "بانتظار العميل", stateColor: "rgba(14,14,14,.5)" }
-      ],
+      feePoints: this.mo("feePoints", [
+        { text: "تضاف الرسوم والمصروفات على كل شحنة يتم تخليصها، دون تجميعها يدوياً في ملفات منفصلة." },
+        { text: "يظهر الدخل والتكاليف تحت كل شحنة، لتعرف نتيجة كل معاملة على حدة." },
+        { text: "ترسل بيانات الرسوم عبر الربط إلى نظامك المحاسبي ليصدر الفاتورة الضريبية." }
+      ]),
+      feeRows: this.mo("feeRows", [
+        { label: "رسوم جمركية", note: "سُدِّدت من الملف", amount: "١٨,٢٤٠ ر.س", color: "#0E0E0E" },
+        { label: "مصروفات ميدانية", note: "معاينة ومناولة", amount: "٦٤٠ ر.س", color: "#0E0E0E" },
+        { label: "أتعاب التخليص", note: "على المعاملة نفسها", amount: "٨,٠٠٠ ر.س", color: "#0B7F52" }
+      ]),
 
-      carrierPoints: [
-        { text: "طلب واحد، وكل العروض في شاشة واحدة" },
-        { text: "العقود محفوظة وتُطبَّق تلقائياً" },
-        { text: "الحجز من الملف الذي فُسح للتو" },
-        { text: "أجرة الناقل على السجل نفسه مع الرسوم" }
-      ],
-      quotes: [
-        { name: "ناقل متعاقد للخط الطويل", terms: "اتفاقية أسعار ٢٠٢٦", rate: "٢,١٥٠ ر.س", eta: "٢٦ ساعة", action: "احجز", bg: "rgba(0,194,120,.07)", btnBg: "#00C278", btnFg: "#0E0E0E" },
-        { name: "ناقل إقليمي", terms: "عرض فوري", rate: "٢,٣٨٠ ر.س", eta: "٢٤ ساعة", action: "اختر", bg: "#FFFDFD", btnBg: "rgba(14,14,14,.07)", btnFg: "#0E0E0E" },
-        { name: "مشغّل مسطحات", terms: "عرض فوري", rate: "٢,٩٠٠ ر.س", eta: "٢٠ ساعة", action: "اختر", bg: "#FFFDFD", btnBg: "rgba(14,14,14,.07)", btnFg: "#0E0E0E" }
-      ],
       faqsA: this.faqCols().a,
       faqsB: this.faqCols().b,
-      faqs: this.faqData().map(function (f, i) {
-        const on = i === self.state.faq;
-        return { q: f.q, a: f.a,
-          sign: on ? "\u2212" : "+",
-          h: on ? "280px" : "0px", o: on ? 1 : 0, pb: on ? "26px" : "0px",
-          toggle: function () { self.setState({ faq: self.state.faq === i ? -1 : i }); } };
-      }),
-      stepCardH: stack ? "300px" : "244px",
-      stepTextX: stack ? "40%" : "46%",
-      ghostSize: stack ? "132px" : "176px",
-      steps: [
+
+      stepCardH: tight ? "auto" : (stack ? "340px" : "268px"),
+      stepTextX: tight ? "22px" : (stack ? "40%" : "46%"),
+      stepTextPad: tight ? "84px 0 30px" : "38px 0",
+      ghostSize: tight ? "72px" : (stack ? "132px" : "176px"),
+      ghostX: tight ? "22px" : "36px",
+      ghostTop: tight ? "14px" : "50%",
+      ghostShift: tight ? "none" : "translateY(-50%)",
+      steps: this.mo("steps", [
         { n: "١", head: "افتح الملف", tag: "الملف مفتوح", photo: "photos/step-port-aerial.jpg", alt: "منظر جوي لميناء حاويات سعودي",
-          body: "اختر العميل، وارفع بوليصة الشحن والفاتورة. وبيانات العميل المحفوظة تُستدعى لك." },
-        { n: "٢", head: "أعدّ البيان وأرسله", tag: "أُرسل إلى فسح", photo: "photos/step-broker-desk.jpg", alt: "مخلّص جمركي يعدّ البيان على الحاسوب",
-          body: "تُراجع البنود والقيم ثم تُرسل. والحقول الناقصة تُنبَّه قبل الرفض." },
-        { n: "٣", head: "تابع حتى الفسح", tag: "تم الفسح", photo: "photos/licence-courier.jpg", alt: "مستودع جمركي بخطوط ناقلة",
-          body: "الرسوم والمعاينة والفسح تُسجَّل لحظة حدوثها، وتُحدَّث من الجوال في الميناء." },
-        { n: "٤", head: "أصدر الفاتورة وأرشِف", tag: "صدرت الفاتورة", photo: "photos/step-gate.jpg", alt: "شاحنة عند بوابة خروج الميناء",
-          body: "الأتعاب والمصروفات تُجمع في فاتورة ضريبية واحدة، ويُؤرشَف الملف حيث يمكن الرجوع إليه." }
-      ].map(function (s, k) {
+          body: "اختر العميل، وأرفق البوليصة والفاتورة والمستندات المطلوبة، ثم حدد المنفذ ونوع الشحنة. يستدعي النظام بيانات العميل المحفوظة مسبقاً لتقليل إعادة الإدخال." },
+        { n: "٢", head: "جهّز البيان الجمركي", tag: "أُرسل إلى فسح", photo: "photos/step-broker-desk.jpg", alt: "مخلّص جمركي يعدّ البيان على الحاسوب",
+          body: "أدخل البنود الجمركية والأوزان والقيم، وراجع بيانات البيان قبل الإرسال. يتحقق النظام من اكتمال الحقول المطلوبة وينبّهك إلى البيانات الناقصة قبل تقديم البيان." },
+        { n: "٣", head: "تابع المعاملة حتى الفسح", tag: "تم الفسح", photo: "photos/licence-courier.jpg", alt: "مستودع جمركي بخطوط ناقلة",
+          body: "تابع مراحل المعاملة من السداد والفحص وحتى الفسح والتسليم، مع تحديث حالة المعاملة داخل النظام وإتاحتها لفريق العمل والعميل حسب الصلاحيات المحددة." },
+        { n: "٤", head: "أغلق الملف وأرسل بيانات الفاتورة", tag: "أُرسلت للنظام المحاسبي", photo: "photos/step-gate.jpg", alt: "شاحنة عند بوابة خروج الميناء",
+          body: "تضاف الأتعاب والرسوم والمصروفات المرتبطة بالمعاملة، وترسل عبر الربط إلى نظامك المحاسبي لإصدار الفاتورة الضريبية، ثم تحفظ المعاملة ومستنداتها إلكترونياً لتكون جاهزة للرجوع إليها عند الحاجة." }
+      ]).map(function (s, k) {
         return Object.assign({}, s, {
           veil: k === 3 ? "linear-gradient(264deg,rgba(14,14,14,.72) 0%,rgba(14,14,14,.36) 34%,rgba(14,14,14,.82) 68%,rgba(14,14,14,.9) 100%)" : "linear-gradient(264deg,rgba(14,14,14,.88) 0%,rgba(14,14,14,.62) 48%,rgba(14,14,14,.78) 100%)",
           pos: k === 3 ? "50% 60%" : (k === 1 ? "58% 32%" : "50% 50%")
         });
-      }),
-
-      filters: cats.map(function (c) {
-        const on = self.state.filter === c;
-        return { label: c,
-          bg: on ? "#00C278" : "rgba(14,14,14,.07)",
-          fg: on ? "#0E0E0E" : "rgba(14,14,14,.75)",
-          select: function () { self.setState({ filter: c }); } };
-      }),
-      directory: this.directoryData().map(function (d) {
-        const s = st(d.state);
-        const on = self.state.filter === "الكل" || d.category === self.state.filter;
-        return Object.assign({}, d, { stateFg: s.fg, stateBg: s.bg, opacity: on ? 1 : 0.24 });
-      }),
-
+      })
     };
   }
 }

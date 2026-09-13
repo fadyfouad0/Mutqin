@@ -67,7 +67,7 @@
           <span style="height:2px;background:{{ navFg }};border-radius:2px"></span>
         </span>
       </button>
-      <a href="en.html" style="display:{{ deskOnly }};background:{{ navToggle }};clip-path:{{ clipSm }};padding:11px 21px;font-size:14.5px;font-weight:700;color:{{ navFg }}">English</a>
+      <a href="Mutqin Ecosystem Site.dc.html" style="display:{{ deskOnly }};background:{{ navToggle }};clip-path:{{ clipSm }};padding:11px 21px;font-size:14.5px;font-weight:700;color:{{ navFg }}">English</a>
       <a href="#demo" onClick="{{ openDemo }}" style="display:{{ deskOnly }};background:#00C278;color:#0E0E0E;clip-path:{{ clipSm }};padding:13px 26px;font-size:15px;font-weight:700" style-hover="background:#0E0E0E;color:#FFFDFD">اطلب عرضاً تجريبياً</a>
     </div>
   </div>
@@ -81,7 +81,7 @@
     <div style="display:grid;width:100%;max-width:{{ drawerInnerW }};margin:0 auto">
         <a href="#sectors" onClick="{{ menuGo }}" style="display:grid;gap:4px;padding:13px 0 14px;border-bottom:1px solid rgba(14,14,14,.1);border-right:2px solid transparent;padding-right:14px;transition:border-color .2s ease,background .2s ease" style-hover="border-right-color:#00C278;background:rgba(0,194,120,.07)">
           <span style="font-family:Almarai,sans-serif;font-weight:800;font-size:18px;line-height:1.35;color:#0E0E0E">لمن هو</span>
-          <span style="font-size:13px;line-height:1.7;color:rgba(14,14,14,.6)">البريد السريع، الوارد، الصادر، العبور</span>
+          <span style="font-size:13px;line-height:1.7;color:rgba(14,14,14,.6)">نقل سريع، الوارد، الصادر</span>
         </a>
         <a href="#clearance" onClick="{{ menuGo }}" style="display:grid;gap:4px;padding:13px 0 14px;border-bottom:1px solid rgba(14,14,14,.1);border-right:2px solid transparent;padding-right:14px;transition:border-color .2s ease,background .2s ease" style-hover="border-right-color:#00C278;background:rgba(0,194,120,.07)">
           <span style="font-family:Almarai,sans-serif;font-weight:800;font-size:18px;line-height:1.35;color:#0E0E0E">الربط مع فسح</span>
@@ -107,7 +107,7 @@
     <div style="margin-top:{{ drawerFootTop }};width:100%;max-width:{{ drawerInnerW }};margin-left:auto;margin-right:auto;display:grid;gap:10px">
       <div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px">
         <a href="#demo" onClick="{{ openDemoFromMenu }}" style="display:block;text-align:center;background:#00C278;color:#0E0E0E;font-family:Almarai,sans-serif;font-weight:800;font-size:15.5px;padding:16px 18px;clip-path:{{ clipLg }}" style-hover="background:#0E0E0E;color:#FFFDFD">اطلب عرضاً تجريبياً</a>
-        <a href="en.html" style="display:flex;align-items:center;justify-content:center;background:#F5F2EF;border:1px solid rgba(14,14,14,.14);font-family:Almarai,sans-serif;font-weight:800;font-size:14px;padding:0 20px;color:#0E0E0E" style-hover="background:#E8E3DD">EN</a>
+        <a href="Mutqin Ecosystem Site.dc.html" style="display:flex;align-items:center;justify-content:center;background:#F5F2EF;border:1px solid rgba(14,14,14,.14);font-family:Almarai,sans-serif;font-weight:800;font-size:14px;padding:0 20px;color:#0E0E0E" style-hover="background:#E8E3DD">EN</a>
       </div>
       <a href="mailto:info@mutqin.sa" style="text-align:center;font-size:14px;color:rgba(14,14,14,.6);direction:ltr" style-hover="color:#00A868">info@mutqin.sa</a>
     </div>
@@ -130,7 +130,7 @@
         <a href="#stages" style="text-align:center;width:{{ heroBtnW }};background:rgba(255,253,253,.16);backdrop-filter:blur(10px);color:#FFFDFD;font-weight:400;font-size:16px;clip-path:{{ clipLg }};padding:18px 35px" style-hover="background:rgba(255,253,253,.3)">شاهد كيف يعمل</a>
       </div>
       <div style="margin-top:38px;display:inline-flex;align-items:center;gap:13px">
-        <span style="font-family:Almarai,sans-serif;font-weight:700;font-size:12.5px;line-height:1.9;color:rgba(255,253,253,.78)">مدعوم من</span>
+        <span style="font-family:Almarai,sans-serif;font-weight:700;font-size:12.5px;line-height:1.9;color:rgba(255,253,253,.78)">Powered by</span>
         <img src="brand/elm-mark-light.png" alt="علم" style="height:40px;display:block" />
       </div>
     </div>
@@ -164,7 +164,7 @@
       <p style="margin:0;max-width:46ch;font-size:17px;line-height:1.95;color:rgba(14,14,14,.7);text-wrap:pretty">تخليص حاوية واحدة لا يشبه تخليص ألف طرد في ليلة واحدة. مرّر المؤشر على أي بطاقة لترى ما يتولّاه النظام. لكل مسار مراحله ومستنداته وتقاريره.</p>
     </div>
     <div style="display:grid;grid-template-columns:{{ colSector }};gap:18px;margin-top:46px">
-      <sc-for list="{{ sectors }}" as="s" hint-placeholder-count="4">
+      <sc-for list="{{ sectors }}" as="s" hint-placeholder-count="3">
         <div onMouseEnter="{{ s.enter }}" onMouseLeave="{{ s.leave }}" style="position:relative;height:{{ sectorH }};overflow:hidden;background:#0E0E0E;clip-path:{{ clipCard }}">
           <img src="{{ s.photo }}" alt="{{ s.alt }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block" />
           <span style="position:absolute;inset:0;pointer-events:none;background:{{ s.veil }};transition:background .35s ease"></span>
@@ -296,7 +296,6 @@
         <div style="background:#00C278;color:#0E0E0E;border-radius:{{ innerRadius }};padding:18px 22px">
           <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px 14px">
             <span style="font-family:Almarai,sans-serif;font-weight:800;font-size:14.5px">تُرسل عبر الربط إلى نظامك المحاسبي</span>
-            <span style="font-family:Almarai,sans-serif;font-weight:700;font-size:12px;background:rgba(14,14,14,.16);border-radius:999px;padding:6px 13px;white-space:nowrap;flex:0 0 auto">قيود</span>
           </div>
           <div style="margin-top:12px;height:6px;border-radius:3px;background:rgba(14,14,14,.16);position:relative;overflow:hidden"><span style="position:absolute;right:0;top:0;height:6px;border-radius:3px;background:#0E0E0E;animation:bridgeAr 4s ease-in-out infinite"></span></div>
         </div>
@@ -405,7 +404,10 @@
 
     <footer style="position:relative;background:#0E0E0E;color:#FFFDFD;padding:{{ footPadSeam }}">
       <div style="max-width:1560px;margin:0 auto;text-align:center">
-        <img src="brand/symbol-green.svg" alt="" aria-hidden="true" style="position:absolute;top:0;left:50%;transform:translate(-50%,-50%);height:{{ emblemH }};display:block" />
+        <div aria-hidden="true" style="position:absolute;top:0;left:50%;transform:translate(-50%,-50%);height:{{ emblemH }};aspect-ratio:242.61/280.14">
+          <svg viewBox="567 400 242.61 280.14" style="position:absolute;inset:0;width:100%;height:100%;clip-path:inset(0 0 50% 0)"><path d="M809.61 470.04 L809.61 610.11 L688.30 680.14 L567.00 610.11 L567.00 470.04 L688.30 400.00 L809.61 470.04 Z M584.80 480.36 L688.30 537.94 L688.31 659.50 L791.81 599.78 L791.81 480.36 L688.31 420.64 L584.80 480.36 Z" fill="#0E0E0E"></path></svg>
+          <svg viewBox="567 400 242.61 280.14" style="position:absolute;inset:0;width:100%;height:100%;clip-path:inset(50% 0 0 0)"><path d="M809.61 470.04 L809.61 610.11 L688.30 680.14 L567.00 610.11 L567.00 470.04 L688.30 400.00 L809.61 470.04 Z M584.80 480.36 L688.30 537.94 L688.31 659.50 L791.81 599.78 L791.81 480.36 L688.31 420.64 L584.80 480.36 Z" fill="#FFFDFD"></path></svg>
+        </div>
         <img src="brand/wordmark-light.svg" alt="متقن Mutqin" style="height:{{ footWordmark }};display:block;margin:0 auto" />
         <p style="margin:{{ footTagTop }} auto 0;max-width:46ch;font-family:Almarai,sans-serif;font-weight:700;font-size:{{ footTagSize }};line-height:1.7;color:rgba(255,253,253,.72)">النظام الذي تعمل عليه مكاتب التخليص المرخّصة<br />في المملكة.</p>
       </div>
@@ -417,7 +419,7 @@
             <a href="mailto:info@mutqin.sa" style="color:rgba(255,253,253,.9);text-decoration:underline;text-underline-offset:3px;direction:ltr;text-align:right" style-hover="color:#00C278">info@mutqin.sa</a>
           </div>
           <a href="https://www.elm.sa" style="margin-top:24px;display:inline-flex;align-items:center;gap:13px" style-hover="opacity:.75">
-            <span style="font-family:Almarai,sans-serif;font-weight:700;font-size:11.5px;color:rgba(255,253,253,.55)">مدعوم من</span>
+            <span style="font-family:Almarai,sans-serif;font-weight:700;font-size:11.5px;color:rgba(255,253,253,.55)">Powered by</span>
             <img src="brand/elm-mark-light.png" alt="علم" style="height:48px;display:block" />
           </a>
         </div>
@@ -435,7 +437,7 @@
           <div style="margin-top:{{ footListTop }};display:grid;gap:{{ footListGap }};font-size:15px">
             <a href="#sectors" style="color:rgba(255,253,253,.72)">لمن هو</a>
             <a href="#faq" style="color:rgba(255,253,253,.72)">الأسئلة الشائعة</a>
-            <a href="en.html" style="color:rgba(255,253,253,.72)">English</a>
+            <a href="Mutqin Ecosystem Site.dc.html" style="color:rgba(255,253,253,.72)">English</a>
           </div>
         </div>
         <div style="justify-self:{{ footEnd }}">
@@ -574,11 +576,11 @@ class Component extends DCLogic {
     return this.mo("faqs", [
       { q: "ما هو متقن؟", a: "نظام سحابي لإدارة أعمال التخليص الجمركي، مبني لمكاتب التخليص المرخّصة في المملكة. إعداد البيانات الجمركية وأرشفة المستندات ومتابعة الشحنات وتسجيل رسومها وإدارة العملاء في حساب واحد." },
       { q: "هل متقن مرتبط مباشرة بمنصة فسح؟", a: "نعم. تُرسل بيانات المعاملة إلى فسح دون إعادة إدخال يدوي، وتعود حالة التخليص تلقائياً إلى ملف المعاملة حيث يراها فريقك وعميلك في اللحظة نفسها. كما تُراجع الحقول قبل الإرسال، ما يقلّل الرفض." },
-      { q: "هل يدعم رخصتي التخليص؟", a: "نعم، بمسارين منفصلين. رخصة البريد السريع تحصل على استيراد المنافيست بالجملة والبيانات الدفعية ورسوم مجمّعة لكل شركة أو متجر. ورخصة الصادر والوارد تحصل على المسار من بوليصة الشحن حتى الفسح مع تتبّع الأرضيات، والصادر حتى شهادة المنشأ والمغادرة." },
+      { q: "هل يدعم رخصتي التخليص؟", a: "نعم، بمسارين منفصلين. رخصة النقل السريع تحصل على استيراد المنافيست بالجملة والبيانات الدفعية ورسوم مجمّعة لكل شركة أو متجر. ورخصة الصادر والوارد تحصل على المسار من بوليصة الشحن حتى الفسح مع تتبّع الأرضيات، والصادر حتى شهادة المنشأ والمغادرة." },
       { q: "كم يستغرق التشغيل؟", a: "يعمل الحساب خلال يوم عمل واحد. وترحيل بيانات العملاء والمعاملات السابقة يستغرق عادة من ثلاثة إلى خمسة أيام عمل بحسب حجم الأرشيف، ويقوم به فريقنا معك." },
       { q: "هل يناسب متقن المكتب الصغير؟", a: "نعم. يبدأ بخطة بحجم مكتب فيه مخلّص واحد وموظف متابعة واحد، ويتوسّع إلى عشرات المستخدمين وعدة فروع دون تغيير النظام أو ترحيل جديد." },
       { q: "أين تُحفظ بياناتي؟", a: "داخل المملكة، مع نسخ احتياطي يومي، وتشفير أثناء النقل وفي التخزين، وصلاحيات محددة لكل مستخدم ودور." },
-      { q: "كيف يتعامل متقن مع الفاتورة الإلكترونية؟", a: "تضاف رسوم كل شحنة ومصروفاتها داخل متقن، ثم ترسل عبر الربط إلى نظامك المحاسبي، مثل قيود وغيره، لتصدر منه الفاتورة الضريبية المتوافقة مع متطلبات الفاتورة الإلكترونية. متقن يجهز لك بيانات كل شحنة كاملة، ونظامك المحاسبي يصدر الفاتورة." },
+      { q: "كيف يتعامل متقن مع الفاتورة الإلكترونية؟", a: "تضاف رسوم كل شحنة ومصروفاتها داخل متقن، ثم ترسل عبر الربط إلى نظامك المحاسبي لتصدر منه الفاتورة الضريبية المتوافقة مع متطلبات الفاتورة الإلكترونية. متقن يجهز لك بيانات كل شحنة كاملة، ونظامك المحاسبي يصدر الفاتورة." },
       { q: "هل يستطيع عميلي متابعة شحنته؟", a: "نعم. لكل عميل بوابة تُظهر حالة معاملاته ومستنداته ورسوم شحناته. وهذه أكثر ميزة تقول المكاتب إنها خفّضت مكالمات المتابعة اليومية." },
       { q: "هل يعمل من الجوال في الميناء؟", a: "نعم، يعمل متقن في المتصفح على أي جهاز. يرفع المندوب صور المستندات ويحدّث الحالة من جواله، فتصل إلى المكتب والعميل في الوقت نفسه." },
       { q: "ماذا يحدث لبياناتي إذا أوقفت الاشتراك؟", a: "بياناتك تبقى ملكك. يمكنك تصدير الأرشيف والمعاملات وبيانات الرسوم كاملة بصيغ مفتوحة في أي وقت، دون مقابل إضافي." }
@@ -615,7 +617,7 @@ class Component extends DCLogic {
     const self = this;
     const stack = this.state.stack, narrow = this.state.narrow, tight = this.state.tight, sc = this.state.scrolled;
     const modal = this.state.modal;
-    const licences = ["البريد السريع", "الصادر والوارد", "غير ذلك"].map(function (label) {
+    const licences = ["نقل سريع", "الصادر والوارد", "غير ذلك"].map(function (label) {
       const on = self.state.mLic === label;
       return { label: label,
         bg: on ? "#0E0E0E" : "#FFFDFD",
@@ -753,7 +755,7 @@ class Component extends DCLogic {
 
       col2: stack ? "minmax(0,1fr)" : "minmax(0,1fr) minmax(0,1fr)",
       col3: stack ? "minmax(0,1fr)" : (narrow ? "repeat(2,minmax(0,1fr))" : "repeat(3,minmax(0,1fr))"),
-      colSector: stack ? "minmax(0,1fr)" : (narrow ? "repeat(2,minmax(0,1fr))" : "repeat(4,minmax(0,1fr))"),
+      colSector: stack ? "minmax(0,1fr)" : (narrow ? "repeat(2,minmax(0,1fr))" : "repeat(3,minmax(0,1fr))"),
       sectorTitle: stack ? "26px" : "clamp(22px,2.1vw,30px)",
       footCols: stack ? "repeat(2,minmax(0,1fr))" : "minmax(0,1.3fr) repeat(3,minmax(0,1fr))",
       footEnd: "stretch",
@@ -789,14 +791,12 @@ class Component extends DCLogic {
       flipOrder: stack ? 2 : 0,
 
       sectors: this.mo("sectors", [
-        { code: "٠١ / البريد السريع", name: "البريد السريع", photo: "photos/licence-courier.jpg", alt: "مستودع جمركي بخطوط ناقلة",
+        { code: "٠١ / نقل سريع", name: "نقل سريع", photo: "photos/licence-courier.jpg", alt: "مستودع جمركي بخطوط ناقلة",
           copy: "آلاف الطرود في الليلة: بيانات الطرود تُستورد دفعة واحدة، والبيانات الجمركية تُعالج على هيئة حِزم، ورسوم مجمّعة لكل شركة أو متجر." },
         { code: "٠٢ / الوارد", name: "الوارد", photo: "photos/import-terminal.jpg", alt: "محطة حاويات عند الغروب",
           copy: "من الوصول إلى التسليم: ملف المعاملة والبيان والمستندات والرسوم والأرضيات، مُتابَعة في مكان واحد حتى يُقفل الملف." },
         { code: "٠٣ / الصادر", name: "الصادر", photo: "photos/export-clearance.jpg", alt: "شحنة صادرة أثناء التحميل",
-          copy: "من أمر التصدير إلى المغادرة: البيان وشهادة المنشأ والمستندات المساندة، محفوظة مع الشحنة التي يسأل عنها عميلك." },
-        { code: "٠٤ / العبور", name: "العبور", photo: "photos/transit-border.jpg", alt: "شاحنة حاويات على الطريق",
-          copy: "ملفات العبور وإعادة التصدير في السجل نفسه، مع متابعة الحركة والمستندات والضمانات حتى الإقفال." }
+          copy: "من أمر التصدير إلى المغادرة: البيان وشهادة المنشأ والمستندات المساندة، محفوظة مع الشحنة التي يسأل عنها عميلك." }
       ]).map(function (s, i) {
         const on = self.state.sector === i;
         return Object.assign({}, s, {
@@ -826,7 +826,7 @@ class Component extends DCLogic {
       feePoints: this.mo("feePoints", [
         { text: "تضاف الرسوم والمصروفات على كل شحنة يتم تخليصها، دون تجميعها يدوياً في ملفات منفصلة." },
         { text: "يظهر الدخل والتكاليف تحت كل شحنة، لتعرف نتيجة كل معاملة على حدة." },
-        { text: "ترسل بيانات الرسوم عبر الربط إلى نظامك المحاسبي، مثل قيود وغيره، ليصدر الفاتورة الضريبية." }
+        { text: "ترسل بيانات الرسوم عبر الربط إلى نظامك المحاسبي ليصدر الفاتورة الضريبية." }
       ]),
       feeRows: this.mo("feeRows", [
         { label: "رسوم جمركية", note: "سُدِّدت من الملف", amount: "١٨,٢٤٠ ر.س", color: "#0E0E0E" },
